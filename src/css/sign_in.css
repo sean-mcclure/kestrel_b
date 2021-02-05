@@ -1,0 +1,86 @@
+.close_modal_sign_in {
+    float: right;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.sign_in_close {
+    display: none;
+}
+
+.sign_in_input,
+.search_input {
+	height: 40px;
+	width: 90%;
+	border: 1px solid whitesmoke;
+	border-radius: 3px;
+	background: #3F3E3D;
+	margin-bottom: 20px;
+	color: whitesmoke;
+	padding: 4px;
+	padding-left: 10px;
+	font-size: 20px;
+	font-family: "Roboto";
+}
+
+.input_1 {
+	margin-top: 10px;
+}
+
+.forgot_pass {
+	color: silver;
+	margin-top: -10px;
+	cursor: pointer;
+}
+
+.submit {
+	height: 30px;
+	width: 95%;
+	border: none;
+	background: gold;
+	border-radius: 3px;
+	margin: 10px;
+	margin-top: 0px;
+	font-size: 16px;
+	outline: 0;
+	cursor: pointer;
+}
+
+.sign_in_up_wrapper {
+	display: flex;
+	flex-direction: row;
+	width: 90%;
+	margin: 10px;
+    margin-left: 10px;
+}
+
+.submit_options {
+	height: 30px;
+	min-width: 50%;
+	border: none;
+	background: gold;
+	border-radius: 3px;
+	font-size: 16px;
+	outline: 0;
+	cursor: pointer;
+}
+
+.submit_options:nth-child(2) {
+	background: grey;
+	color: whitesmoke;
+	margin-left: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+    .sign_in_up_wrapper {
+        margin-left: 22px;
+    }
+    .sign_in_input, .search_input {
+        width: 80%;
+        margin-left: 20px;
+    }
+    .submit {
+        margin-left: 22px;
+        height: 40px;
+    }
+}

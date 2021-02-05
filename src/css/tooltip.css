@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+.tooltip {
+    position: relative;
+    white-space: nowrap;
+}
+
+.tooltip::after {
+	background: #141414;
+	border-radius: 10px;
+	color: white;
+	display: none;
+	padding: 10px 15px;
+	position: absolute;
+	text-align: center;
+    z-index: 999;
+    font-family: "Oswald";
+    font-size: 16px;
+    border: 1px solid gold;
+}
+
+.tooltip::before {
+	background-color: #333;
+	content: ' ';
+	display: none;
+	position: absolute;
+	width: 15px;
+	height: 15px;
+	z-index: 999;
+}
+
+.tooltip:hover::after {
+	display: block;
+}
+
+.tooltip:hover::before {
+	display: block;
+}
+
+.tooltip.top::after {
+	content: attr(data-tooltip_text);
+	top: 0;
+	left: 50%;
+	transform: translate(-50%, calc(-100% - 10px));
+}
+
+.tooltip.top::before {
+	top: 0;
+	left: 50%;
+	transform: translate(-50%, calc(-100% - 5px)) rotate(45deg);
+}
+
+@media only screen and (max-width: 600px) {
+    .tooltip:hover::before {
+	    visibility: hidden;
+    }
+    .tooltip.top::after {
+		visibility: hidden;
+    }
+}

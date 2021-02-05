@@ -1,0 +1,40 @@
+.poll_input {
+    height: 40px;
+    width: 90%;
+    border: 2px solid gold;
+    border-radius: 3px;
+    background: #3F3E3D;
+    margin-bottom: 20px;
+    color: whitesmoke;
+    padding: 4px;
+    padding-left: 10px;
+    font-size: 20px;
+    font-family: "Roboto";
+}
+
+.poll_input_2, .poll_input_3, .poll_input_4, .poll_input_5 {
+    border: 1px solid gold;
+}
+
+.polls_run_for {
+    color: silver;
+    margin-bottom: 10px;
+}
+
+.back_to_write {
+    cursor: pointer;
+}
+
+.post_poll {
+    background: gold;
+    height: 40px;
+    border: none;
+    border-radius: 3px;
+    color: #141414;
+    outline: 0;
+    margin: 0px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}

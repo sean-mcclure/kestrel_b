@@ -1,0 +1,33 @@
+.sidediv {
+    width: 0px;
+    height: 100vh;
+    overflow-x: hidden;
+    right: 0;
+    margin-right: -30px;
+    position: absolute;
+    background: rgba(61, 61, 61, 1);
+    box-shadow: 2px 2px 40px #141414;
+    z-index: 999999;
+    font-family: "Oswald";
+    color: whitesmoke;
+    text-align: center;
+    padding: 10px;
+    -webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+#clicked_img {
+    margin-top: 10px !important;
+    border-radius: 4px;
+    width: 80%;
+}
+
+#hold_uploaded_video {
+    width: 70%;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 50px !important;
+}

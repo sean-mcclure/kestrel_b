@@ -1,0 +1,10 @@
+.dm_close {
+    margin-top: -30px;
+    margin-right: 10px;
+    position: absolute;
+    right: 0;
+}
+.dm > h4 {
+    margin-top: 30px;
+    margin-left: 20px;
+}

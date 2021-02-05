@@ -1,0 +1,13 @@
+.close {
+    font-size: 20px;
+    cursor: pointer;
+    color: whitesmoke;
+    float: right;
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .close {
+        font-size: 25px !important;
+    }
+}
