@@ -11,8 +11,6 @@ import SideDiv from "./SideDiv";
 import {style} from "./style.js";
 import {utility} from "./utility.js";
 
-import {open_div} from "./SideDiv";
-
 import {log_user_out} from "./SignRegister";
 
 import {

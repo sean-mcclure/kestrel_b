@@ -1,32 +1,18 @@
 import "./css/write.css";
-import Poll from "./Poll";
 import Close from "./Close";
 import UploadImageWriting from "./UploadImageWriting";
 
-import {style} from "./style.js";
-
 import {utility} from "./utility.js";
-
 
 import {post} from "./Post";
 
 import {
-  FaTimes,
   FaCameraRetro,
   FaPoll,
   FaPlus
 } from "react-icons/fa";
 
 const React = require('react')
-
-function validate_file_size(file, max_allowable_in_mb) {
-    var FileSize = file.files[0].size / 1024 / 1024;
-    if (FileSize > max_allowable_in_mb) {
-        return("not allowed")
-    } else {
-        return("allowed")
-    }
-}
 
     const input_styles = {
         display : "none"
@@ -37,9 +23,6 @@ function validate_file_size(file, max_allowable_in_mb) {
         display : "none",
         margin : "0 auto"
     }
-
-    var camera_cnt = 0;
-
 
 class Write extends React.Component {
 

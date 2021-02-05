@@ -6,10 +6,18 @@ body {
 	overscroll-behavior-y: none;
 	position: fixed;
     overflow: hidden;
-     background: #3D3D3D;
+    background: #3D3D3D;
 }
 
 html {
 	overflow-x: none !important;
 	height: 100%;
 }
+
+body {
+    display: grid;
+    grid-template-rows: 3;
+    grid-template-columns: 2;
+    grid-gap: 10px;
+}
+

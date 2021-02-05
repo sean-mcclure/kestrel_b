@@ -8,8 +8,6 @@ import SignIn from "./SignIn";
 import Poll from "./Poll";
 import Close from "./Close";
 
-import {utility} from "./utility.js";
-
 function SideDiv() {
     return(
         <div className="sidediv">
@@ -39,7 +37,7 @@ function SideDiv() {
             </div>
             <div className="img_and_video">
                 <div className="close_clicked_img"><Close/></div>
-                <img id="clicked_img"></img>
+                <img id="clicked_img" alt="clicked"></img>
                 <video height="200px" controls id="hold_uploaded_video"><source id="clicked_video" type="video/mp4"></source></video>
             </div>
         </div>

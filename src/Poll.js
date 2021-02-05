@@ -1,7 +1,5 @@
 import "./css/poll.css";
 
-import {click_back_poll} from "./utility.js";
-
 import {post} from "./Post";
 
 import {utility} from "./utility";

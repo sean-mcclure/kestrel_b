@@ -51,11 +51,11 @@ export function post() {
     if(window.polling) {
 
         var poll_input_1 = document.getElementsByClassName("poll_input_1")[0].value; 
-        var poll_input_2 = document.getElementsByClassName("poll_input_2")[0].value; 
-        var poll_input_3 = document.getElementsByClassName("poll_input_3")[0].value; 
-        var poll_input_4 = document.getElementsByClassName("poll_input_4")[0].value;
+        //var poll_input_2 = document.getElementsByClassName("poll_input_2")[0].value; 
+        //var poll_input_3 = document.getElementsByClassName("poll_input_3")[0].value; 
+        //var poll_input_4 = document.getElementsByClassName("poll_input_4")[0].value;
         
-        fin = [];
+        var fin = [];
 
         var poll_div = ReactHtmlParser("<div style='background: lightgrey; height: auto; padding: 5px;'>" + poll_input_1 + "</div><div>CHOOSE</div>");
 
@@ -68,7 +68,7 @@ export function post() {
     var msg = document.getElementById("write_textarea").value;
 
     if(msg === "") {
-        var msg = document.getElementsByClassName("clone")[0].children[2].innerText;
+        msg = document.getElementsByClassName("clone")[0].children[2].innerText;
     }
 
     var threads = document.getElementsByClassName("thread_textarea");
@@ -81,7 +81,6 @@ export function post() {
 
     if(all_threads.length > 1) {
 
-    var fin = [];
     all_threads.forEach(function(elem, i) {
         var use_index = i + 1;
         fin.push(use_index.toString() + "/" + all_threads.length + "\n" + elem);
@@ -144,10 +143,12 @@ export function post() {
         </div>
         )
 
+        /*
         if(window.repost) {
             var elem = document.getElementById(window.repost_id);
             var clone = elem.cloneNode(true);
         }
+        */
 
         events.uploadFile(image_src)
         } else {
@@ -160,7 +161,7 @@ export function post() {
       }}></img></div><div className="user">John Smith</div><div className="hold_msg">{fin}</div>
             <div onClick={(event) => {
                 utility.open_div("img_and_video");
-            }}><img src={image_src} onClick={
+            }}><img src={image_src} alt="video_upload" onClick={
           (event) => {
               if(event.target.src.includes("video")) {
                   document.getElementById("clicked_img").style.display = "none";

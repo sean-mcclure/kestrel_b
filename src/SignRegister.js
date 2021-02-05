@@ -38,7 +38,7 @@ export async function new_user(pass_email, pass_password) {
             document.getElementById("welcome_modal").style.display = "none";
             document.getElementsByClassName("options_icons")[3].classList.add("rubberBand_it");
         }, 3000)
-        var currentUser = Parse.User.current(); // successful registration...user is now signed in.
+        //var currentUser = Parse.User.current(); // successful registration...user is now signed in.
         document.getElementsByClassName("sign_in")[0].innerText = "SIGN OUT";
     } catch (error) {
         alert(error.message);
@@ -59,7 +59,7 @@ export async function sign_in_user(pass_email, pass_password) {
 
 export function log_user_out() {
     Parse.User.logOut().then(() => {
-        var currentUser = Parse.User.current(); // this will now be null
+       // var currentUser = Parse.User.current(); // this will now be null
         document.getElementsByClassName("sign_in")[0].innerText = "SIGN IN/UP";
     });
 }

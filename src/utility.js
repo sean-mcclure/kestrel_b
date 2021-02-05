@@ -6,9 +6,17 @@ export var utility = {
             return false
         }
     },
+    validate_file_size : function(file, max_allowable_in_mb) {
+    var FileSize = file.files[0].size / 1024 / 1024;
+    if (FileSize > max_allowable_in_mb) {
+        return("not allowed")
+    } else {
+        return("allowed")
+    }
+},
     character_counter: function(e) {
         var id = e.target.id;
-        var class_name = document.getElementById(id).className;
+       // var class_name = document.getElementById(id).className;
         var cnt = 280 - Number(e.target.value.length)
         document.getElementById(id).previousElementSibling.innerHTML = cnt;
         if (cnt > 50 && cnt <= 280) {
