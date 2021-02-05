@@ -22,7 +22,9 @@ function App() {
    
   return (
       <div className="body_wrapper">
-          <div className="body_wrapper_item"></div>
+          <div className="body_wrapper_item">
+              <img className="logo" src={logo} alt="logo"></img>
+          </div>
           <div className="body_wrapper_item"></div>
           <div className="body_wrapper_item"></div>
           <div className="body_wrapper_item"></div>

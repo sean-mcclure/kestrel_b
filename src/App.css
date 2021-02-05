@@ -18,12 +18,35 @@ html {
     display: grid;
     width: 100vw;
     height: 100vh;
-    grid-auto-rows: 33% 33% 33%;
+    grid-template-rows: 80px 1fr 40px;
     grid-auto-columns: 33% 33% 33%;
     grid-gap: 10px;
 }
 
 .body_wrapper_item {
     background: pink;
+    width: 100vw;
 }
 
+.body_wrapper_item:nth-child(1) {
+    grid-row: 1;
+    grid-column: 1 / span 2;
+    background: #3D3D3D;
+    padding: 10px;
+}
+
+.body_wrapper_item:nth-child(3) {
+    grid-row: 2;
+    grid-column: 1 / span 2;
+    background: whitesmoke;
+}
+
+.body_wrapper_item:nth-child(5) {
+    grid-row: 3;
+    grid-column: 1 / span 2;
+    background: #3D3D3D;
+}
+
+.logo {
+    width: 150px;
+}
