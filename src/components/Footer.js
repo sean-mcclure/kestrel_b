@@ -1,6 +1,6 @@
 import {log_user_out} from "./SignRegister";
 
-import {utility} from "./scripts/utility.js";
+import {utility} from "../scripts/utility.js";
 
 import {
   FaRedo,

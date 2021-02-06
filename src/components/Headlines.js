@@ -1,5 +1,5 @@
 import React from 'react';
-import "./css/posts_and_headlines.css";
+import "../css/posts_and_headlines.css";
 
 const headlines = [{
                     logo : "https://i0.wp.com/lo3energy.com/wp-content/uploads/2018/12/cnn-logo-square.png?ssl=1s",

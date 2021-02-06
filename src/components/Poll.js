@@ -1,8 +1,8 @@
-import "./css/poll.css";
+import "../css/poll.css";
 
 import {post} from "./Post";
 
-import {utility} from "./scripts/utility.js";
+import {utility} from "../scripts/utility.js";
 
 import {
   FaArrowCircleLeft

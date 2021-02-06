@@ -1,12 +1,12 @@
-import "./css/sign_in.css";
+import "../css/sign_in.css";
 
-import logo from "./img/logo.png";
+import logo from "../img/logo.png";
 
 import {new_user, sign_in_user} from "./SignRegister";
 
 import Close from "./Close";
 
-import { events } from "./scripts/events.js";
+import { events } from "../scripts/events.js";
 
 export function Avatar() {
     return (

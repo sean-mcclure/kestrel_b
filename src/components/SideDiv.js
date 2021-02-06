@@ -1,4 +1,4 @@
-import "./css/side_div.css";
+import "../css/side_div.css";
 
 import Write from "./Write";
 import Avatar from "./Avatar";

@@ -1,4 +1,4 @@
-import "./css/close.css";
+import "../css/close.css";
 
 import {
     FaTimes

@@ -1,7 +1,7 @@
 import Parse from "parse";
 
-import {utility} from "./scripts/utility.js";
-import {style} from "./scripts/style.js";
+import {utility} from "../scripts/utility.js";
+import {style} from "../scripts/style.js";
 
 Parse.initialize("2vJNSZlP54FvvotQc5f4RjvJ6o6YiOFATpAgcB4b", "HOBV5HQp2R4lR4icbblBlgeny3hpHPuewsXM9wJR");
 Parse.serverURL = "https://parseapi.back4app.com/";

@@ -1,9 +1,9 @@
 import React from 'react';
-import avatar from "./img/avatar.png";
+import avatar from "../img/avatar.png";
 
-import {events} from "./scripts/events.js";
-import {utility} from "./scripts/utility.js";
-import {style} from "./scripts/style.js";
+import {events} from "../scripts/events.js";
+import {utility} from "../scripts/utility.js";
+import {style} from "../scripts/style.js";
 
 import {
   FaComment,

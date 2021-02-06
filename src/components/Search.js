@@ -1,4 +1,4 @@
-import "./css/search.css";
+import "../css/search.css";
 
 import Close from "./Close";
 

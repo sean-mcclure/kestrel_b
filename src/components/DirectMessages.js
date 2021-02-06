@@ -1,4 +1,4 @@
-import "./css/direct_messages.css";
+import "../css/direct_messages.css";
 
 import Close from "./Close";
 

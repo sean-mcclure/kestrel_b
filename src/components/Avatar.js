@@ -1,4 +1,4 @@
-import "./css/avatar.css";
+import "../css/avatar.css";
 
 import Close from "./Close";
 import UploadImage from "./UploadImage";
