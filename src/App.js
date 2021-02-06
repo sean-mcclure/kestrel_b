@@ -23,6 +23,7 @@ function App() {
       <div className="body_wrapper">
           <div className="body_wrapper_item">
               <img className="logo" src={logo} alt="logo"></img>
+              <FaFeatherAlt color="#F3B32B" size="2em" className="write" onClick={(event) => {event.preventDefault(); utility.open_div("write");}}/>
           </div>
           <div className="body_wrapper_item">
               <div className="inside_wrapper">
