@@ -2,7 +2,7 @@ import React from 'react';
 import "./css/posts_and_headlines.css";
 import avatar from "./img/avatar.png";
 
-import { style } from './style.js';
+import { style } from './scripts/style.js';
 
 const top_posts = ["This is a Headline Title.", 
                     "This is a Headline Title.",

@@ -8,8 +8,8 @@ import Headlines from "./Headlines";
 import SideDiv from "./SideDiv";
 import Footer from "./Footer";
 
-import {style} from "./style.js";
-import {utility} from "./utility.js";
+import {style} from "./scripts/style.js";
+import {utility} from "./scripts/utility.js";
 
 
 import {

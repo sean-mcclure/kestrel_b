@@ -2,7 +2,7 @@ import "./css/poll.css";
 
 import {post} from "./Post";
 
-import {utility} from "./utility";
+import {utility} from "./scripts/utility.js";
 
 import {
   FaArrowCircleLeft

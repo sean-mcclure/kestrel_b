@@ -2,7 +2,7 @@ import "./css/write.css";
 import Close from "./Close";
 import UploadImageWriting from "./UploadImageWriting";
 
-import {utility} from "./utility.js";
+import {utility} from "./scripts/utility.js";
 
 import {post} from "./Post";
 

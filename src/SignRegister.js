@@ -1,13 +1,12 @@
 import Parse from "parse";
 
-import {
-    style
-} from "./style.js";
+import {utility} from "./scripts/utility.js";
+import {style} from "./scripts/style.js";
 
 Parse.initialize("2vJNSZlP54FvvotQc5f4RjvJ6o6YiOFATpAgcB4b", "HOBV5HQp2R4lR4icbblBlgeny3hpHPuewsXM9wJR");
 Parse.serverURL = "https://parseapi.back4app.com/";
 
-call_once_satisfied({
+utility.call_once_satisfied({
     condition: "typeof(document.getElementsByClassName('sign_in')[0]) !== 'undefined'",
     function: function() {
         // check if user already signed in
@@ -76,16 +75,3 @@ export function check_if_user_signed_in() {
     return (res)
 }
 
-function call_once_satisfied(props) {
-    if (props['condition'] === true) {
-        if (typeof(props.function) === 'function') {
-            props.function()
-        } else {
-            props.function()
-        }
-    } else {
-        setTimeout(function() {
-            call_once_satisfied(props)
-        }, 100)
-    }
-}

@@ -2,11 +2,11 @@ import {list_of_messages} from "./Messages.js"
 import {close_div} from "./Close";
 import avatar from "./img/avatar.png";
 
-import {style} from "./style.js"
 import ReactHtmlParser from 'react-html-parser';
 
-import {events} from "./events.js"
-import {utility} from "./utility.js";
+import {events} from "./scripts/events.js"
+import {utility} from "./scripts/utility.js";
+import {style} from "./scripts/style.js"
 
 import {
   FaComment,

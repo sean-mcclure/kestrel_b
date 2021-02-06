@@ -1,4 +1,17 @@
 export var utility = {
+    call_once_satisfied : function(props) {
+    if (props['condition'] === true) {
+        if (typeof(props.function) === 'function') {
+            props.function()
+        } else {
+            props.function()
+        }
+    } else {
+        setTimeout(function() {
+            call_once_satisfied(props)
+        }, 100)
+    }
+},
     is_mobile : function() {
         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
             return true

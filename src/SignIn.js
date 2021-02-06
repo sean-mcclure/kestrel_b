@@ -6,7 +6,7 @@ import {new_user, sign_in_user} from "./SignRegister";
 
 import Close from "./Close";
 
-import { events } from "./events.js";
+import { events } from "./scripts/events.js";
 
 export function Avatar() {
     return (

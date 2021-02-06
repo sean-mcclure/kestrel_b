@@ -1,4 +1,4 @@
-import {utility} from "./utility.js";
+import {utility} from "./scripts/utility.js";
 
 var viz_cnt = 0;
 export var style = {
