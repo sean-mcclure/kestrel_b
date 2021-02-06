@@ -1,3 +1,6 @@
+import "../css/Footer.css";
+import "../css/tooltip.css";
+
 import {log_user_out} from "./SignRegister";
 
 import {utility} from "../scripts/utility.js";

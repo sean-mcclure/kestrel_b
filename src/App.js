@@ -1,14 +1,9 @@
 import './App.css';
-import './css/tooltip.css';
 import logo from "./img/logo.png";
 
-import Messages from "./components/Messages";
-import TopPosts from "./components/TopPosts";
-import Headlines from "./components/Headlines";
-import SideDiv from "./components/SideDiv";
+
 import Footer from "./components/Footer";
 
-import {style} from "./scripts/style.js";
 import {utility} from "./scripts/utility.js";
 
 import {
@@ -32,7 +27,9 @@ function App() {
                   <div className="inside_wrapper_item"></div>
               </div>
           </div>
-          <div className="body_wrapper_item"></div>
+          <div className="body_wrapper_item">
+              <Footer/>
+          </div>
       </div>
 
   );
