@@ -1,6 +1,5 @@
-import {
-    utility
-} from "./utility.js";
+import {utility} from "./utility.js";
+
 var likes = {}
 export var events = {
     like: function(event) {

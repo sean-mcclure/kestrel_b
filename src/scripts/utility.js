@@ -8,7 +8,7 @@ export var utility = {
             }
         } else {
             setTimeout(function() {
-                call_once_satisfied(props)
+                utility.call_once_satisfied(props)
             }, 100)
         }
     },
