@@ -24,10 +24,13 @@ function App() {
           <div className="body_wrapper_item">
               <img className="logo" src={logo} alt="logo"></img>
           </div>
-          <div className="body_wrapper_item"></div>
-          <div className="body_wrapper_item"></div>
-          <div className="body_wrapper_item"></div>
-          <div className="body_wrapper_item"></div>
+          <div className="body_wrapper_item">
+              <div className="inside_wrapper">
+                  <div className="inside_wrapper_item"></div>
+                  <div className="inside_wrapper_item"></div>
+                  <div className="inside_wrapper_item"></div>
+              </div>
+          </div>
           <div className="body_wrapper_item"></div>
       </div>
 
