@@ -17,3 +17,7 @@
     margin: 20px;
     cursor: pointer;
 }
+
+.options_icons:hover {
+    color:  #F3B32B !important;
+} 
