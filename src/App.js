@@ -15,11 +15,12 @@ import {
 function App() {
    
   return (
+      <>
+      <SideDiv/>
       <div className="body_wrapper">
-          <SideDiv/>
           <div className="body_wrapper_item">
               <img className="logo" src={logo} alt="logo"></img>
-              <FaFeatherAlt color="#F3B32B" size="2em" className="write" onClick={(event) => {events.open_div("write")}}/>
+              <FaFeatherAlt color="#F3B32B" size="2em" className="click_to_write" onClick={(event) => {events.open_div("write")}}/>
           </div>
           <div className="body_wrapper_item">
               <div className="inside_wrapper">
@@ -32,7 +33,7 @@ function App() {
               <Footer/>
           </div>
       </div>
-
+    </>
   );
 }
 

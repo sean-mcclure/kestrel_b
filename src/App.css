@@ -50,7 +50,7 @@ html {
     background: #3d3d3d80;
 }
 
-.write {
+.click_to_write {
     float: right;
     margin: 20px;
     filter: drop-shadow(4px 4px 2px black);
