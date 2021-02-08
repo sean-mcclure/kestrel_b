@@ -1,4 +1,4 @@
-.sidediv {
+#sidediv {
     width: 0px;
     height: 100vh;
     overflow-x: hidden;
@@ -19,15 +19,16 @@
 	user-select: none;
 }
 
-#clicked_img {
-    margin-top: 10px !important;
-    border-radius: 4px;
-    width: 80%;
+.sidediv_open {
+    width: 380px !important;
+    transition: 0.15s ease-in;
 }
 
-#hold_uploaded_video {
-    width: 70%;
-    height: auto;
-    margin: 0 auto;
-    margin-top: 50px !important;
+.sidediv_close {
+    width: 0px !important;
+    transition: 0.15s ease-in;
+}
+
+#write, #avatar, #direct_messages, #search, #sign_in, #sign_in, #repost, #comment, #poll_show, #img_and_video {
+    display: none;
 }

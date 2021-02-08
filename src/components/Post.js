@@ -29,7 +29,7 @@ export function post() {
         }, 2000)
     }
     
-    close_div();
+    events.close_div();
 
     const use_msg_id = "msg_wrapper_" + utility.makeid();
 

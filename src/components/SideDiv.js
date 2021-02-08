@@ -10,32 +10,33 @@ import Close from "./Close";
 
 function SideDiv() {
     return(
-        <div className="sidediv">
-            <div className="write">
+        <div id="sidediv">
+            <Close/>
+            <div id="write">
                 <Write/>
             </div>
-            <div className="avatar">
+            <div id="avatar">
                 <Avatar/>
             </div>
-            <div className="direct_messages">
+            <div id="direct_messages">
                 <DirectMessages/>
             </div>
-            <div className="search">
+            <div id="search">
                 <Search/>
             </div>
-            <div className="sign_in">
+            <div id="sign_in">
                 <SignIn/>
             </div>
-            <div className="repost">
+            <div id="repost">
                 <Write/>
             </div>
-            <div className="comment">
+            <div id="comment">
                 <Write/>
             </div>
-            <div className="poll_show">
+            <div id="poll_show">
                 <Poll/>
             </div>
-            <div className="img_and_video">
+            <div id="img_and_video">
                 <div className="close_clicked_img"><Close/></div>
                 <img id="clicked_img" alt="clicked"></img>
                 <video height="200px" controls id="hold_uploaded_video"><source id="clicked_video" type="video/mp4"></source></video>
