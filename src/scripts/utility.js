@@ -27,18 +27,16 @@ export var utility = {
             return ("allowed")
         }
     },
-    character_counter: function(e) {
-        var id = e.target.id;
-        // var class_name = document.getElementById(id).className;
-        var cnt = 280 - Number(e.target.value.length)
-        document.getElementById(id).previousElementSibling.innerHTML = cnt;
+    character_counter: function() {
+        var cnt = 280 - document.getElementById("write_textarea").value.length;
+        console.log(cnt)
+        document.getElementById("show_count").innerText = cnt;
         if (cnt > 50 && cnt <= 280) {
-            document.getElementById(id).previousElementSibling.style.color = "whitesmoke";
+            document.getElementById("show_count").style.color = "whitesmoke";
         } else if (cnt > 0 && cnt <= 50) {
-            document.getElementById(id).previousElementSibling.style.color = "yellow";
+            document.getElementById("show_count").style.color = "yellow";
         } else {
-            document.getElementById(id).previousElementSibling.style.color = "red";
-            document.getElementById(id).previousElementSibling.classList.add("rubberBand_it");
+            document.getElementById("show_count").style.color = "red";
         }
     },
     get_class_instance: function get_class_instance(classname, id) {

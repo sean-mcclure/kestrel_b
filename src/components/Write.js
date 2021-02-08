@@ -1,6 +1,7 @@
 import "../css/write.css";
 
 import Counter from "../components/Counter";
+import { utility } from "../scripts/utility";
 
 function Write() {
     return (
@@ -9,7 +10,7 @@ function Write() {
                 <Counter/>
             </div>
             <div className="write_item">
-                <textarea id="write_textarea" placeholder="what's happening?"></textarea>
+                <textarea id="write_textarea" placeholder="what's happening?" maxLength="280" onChange = {(event) => {utility.character_counter()}}></textarea>
             </div>
             <div className="write_item"></div>
         </div>
