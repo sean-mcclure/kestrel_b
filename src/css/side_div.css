@@ -3,7 +3,6 @@
     height: 100vh;
     overflow-x: hidden;
     right: 0;
-    margin-right: -30px;
     position: absolute;
     background: rgba(61, 61, 61, 1);
     box-shadow: 2px 2px 40px #141414;
@@ -11,7 +10,6 @@
     font-family: "Oswald";
     color: whitesmoke;
     text-align: center;
-    padding: 10px;
     -webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;

@@ -5,6 +5,7 @@ export var events = {
     open_div: function(id) {
         document.getElementById("sidediv").classList.remove("sidediv_close");
         document.getElementById("sidediv").classList.add("sidediv_open");
+         document.getElementById(id).style.display = "block";
     }, 
     close_div : function() {
         document.getElementById("sidediv").classList.remove("sidediv_open");
