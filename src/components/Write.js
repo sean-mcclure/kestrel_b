@@ -8,7 +8,9 @@ function Write() {
             <div className="write_item">
                 <Counter/>
             </div>
-            <div className="write_item"></div>
+            <div className="write_item">
+                <textarea id="write_textarea" placeholder="what's happening?"></textarea>
+            </div>
             <div className="write_item"></div>
         </div>
     )

@@ -8,5 +8,36 @@
 }
 
 .write_item {
-    background: pink;
+    background: transparent;
+}
+
+.write_item:nth-child(2) {
+    padding: 10px;
+}
+
+#write_textarea {
+    width: 94% !important;
+    height: 95%;
+    background: #665c5c;
+    resize: none;
+    padding: 10px;
+    font-family: Oswald;
+    font-size: 18px;
+    color: whitesmoke;
+    border-radius: 6px;
+    border: none;
+    outline: 0;
+}
+
+::placeholder {
+  color: gold;
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  color: gold;
+}
+
+::-ms-input-placeholder {
+  color: gold;
 }
