@@ -1,0 +1,27 @@
+.write_icons_wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+}
+
+.write_icons_item {
+    width: 100%;
+    background: transparent;
+}
+
+.write_icons {
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.post_message {
+    height: 28px;
+    background: gold;
+    color: #141414;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    margin-top: 2px;
+    cursor: pointer;
+}
