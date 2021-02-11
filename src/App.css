@@ -55,6 +55,11 @@ html {
     background: #3d3d3d80;
 }
 
+.inside_wrapper_item:nth-child(1) {
+    height: 100vh;
+    overflow-y: scroll;
+}
+
 .click_to_write {
     float: right;
     margin: 20px;

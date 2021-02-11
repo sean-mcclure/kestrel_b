@@ -1,4 +1,4 @@
-import {list_of_messages} from "./Messages.js"
+import {list_of_messages} from "./MessagesOr.js"
 import {close_div} from "./Close";
 import avatar from "../img/avatar.png";
 

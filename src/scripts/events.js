@@ -1,4 +1,7 @@
 import {utility} from "./utility.js";
+import {data} from "../data/data.js";
+
+import Messages from "../components/Messages";
 
 var likes = {}
 export var events = {
@@ -10,6 +13,11 @@ export var events = {
     close_div : function() {
         document.getElementById("sidediv").classList.remove("sidediv_open");
         document.getElementById("sidediv").classList.add("sidediv_close");
+    },
+    map_messages : function() {
+        return(
+            data.messages.map((msg, i) => <Messages/>)
+        )
     },
     like: function(event) {
         const id = event.currentTarget.id

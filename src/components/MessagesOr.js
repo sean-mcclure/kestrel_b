@@ -50,8 +50,7 @@ export var list_of_messages = messages.map((msg, i) =>
 class Messages extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {messages: list_of_messages
-};
+    this.state = {messages: list_of_messages};
   }
 
   componentDidMount() {

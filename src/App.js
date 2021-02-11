@@ -2,6 +2,7 @@ import './App.css';
 import logo from "./img/logo.png";
 
 import SideDiv from "./components/SideDiv";
+import Messages from "./components/Messages";
 import Footer from "./components/Footer";
 
 import {events} from "./scripts/events.js";
@@ -24,7 +25,9 @@ function App() {
           </div>
           <div className="body_wrapper_item">
               <div className="inside_wrapper">
-                  <div className="inside_wrapper_item"></div>
+                  <div className="inside_wrapper_item">
+                      <Messages/>
+                  </div>
                   <div className="inside_wrapper_item"></div>
                   <div className="inside_wrapper_item"></div>
               </div>
