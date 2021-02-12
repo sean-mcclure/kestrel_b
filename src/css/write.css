@@ -41,3 +41,7 @@
 ::-ms-input-placeholder {
   color: gold;
 }
+
+.outline_validate {
+    border : 2px solid red !important;
+}

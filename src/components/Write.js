@@ -4,6 +4,7 @@ import WriteIcons from "../components/WriteIcons";
 
 import Counter from "../components/Counter";
 import { utility } from "../scripts/utility";
+import { events } from "../scripts/events";
 
 function Write() {
     return (

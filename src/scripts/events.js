@@ -1,5 +1,7 @@
 import {utility} from "./utility.js";
 import {data} from "../data/data.js";
+import "../css/animations.css"
+import "../css/write.css";
 
 import Messages from "../components/Messages";
 
@@ -14,11 +16,22 @@ export var events = {
         document.getElementById("sidediv").classList.remove("sidediv_open");
         document.getElementById("sidediv").classList.add("sidediv_close");
     },
-    map_messages : function() {
-        return(
-            data.messages.map((msg, i) => <Messages/>)
-        )
+    validate_input : {
+        write_textarea : function() {
+            var val = document.getElementById("write_textarea").value;
+            if(val === "") {
+                document.getElementById("write_textarea").classList.add("shake_it");
+                document.getElementById("write_textarea").classList.add("outline_validate");
+                setTimeout(function() {
+                    document.getElementById("write_textarea").classList.remove("shake_it");
+                    document.getElementById("write_textarea").classList.remove("outline_validate");
+                }, 1000);
+            }
+        }
     },
+
+
+
     like: function(event) {
         const id = event.currentTarget.id
         const class_instance = utility.get_class_instance("like_icons", id)

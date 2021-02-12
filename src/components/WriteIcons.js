@@ -6,6 +6,8 @@ import {
     FaPlus
 } from "react-icons/fa";
 
+import { events } from "../scripts/events";
+
 function WriteIcons() {
     return(
         <div className="write_icons_wrapper">
@@ -19,7 +21,7 @@ function WriteIcons() {
                 <FaPlus className="write_icons" size="1.7em" color="gold"/>
             </div>
             <div className="write_icons_item">
-                <button className="post_message">POST</button>
+                <button className="post_message" onClick={(event) => {events.validate_input.write_textarea()}}>POST</button>
             </div>
         </div>
     )
