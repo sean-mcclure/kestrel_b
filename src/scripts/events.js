@@ -37,6 +37,7 @@ export var events = {
                 options.success_function()
                 document.getElementById("write_textarea").value = "";
                 events.close_div();
+                utility.scroll_to_top("inside_wrapper_item");
             }
         }
     },
@@ -52,6 +53,9 @@ export var events = {
     post : function() {
         var new_post = events.prepare_new_post()
         data.messages.unshift(new_post)
+    },
+    save_to_parse : function() {
+        JSON.stringify(data)
     },
     like: function(event) {
         const id = event.currentTarget.id

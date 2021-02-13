@@ -19,6 +19,9 @@ export var utility = {
             return false
         }
     },
+    scroll_to_top : function(targe_class) {
+        document.getElementsByClassName(targe_class)[0].scrollTo({top: 0, left: 0, behavior: 'smooth' });
+    },
     validate_file_size: function(file, max_allowable_in_mb) {
         var FileSize = file.files[0].size / 1024 / 1024;
         if (FileSize > max_allowable_in_mb) {
