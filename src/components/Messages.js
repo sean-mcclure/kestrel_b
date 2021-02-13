@@ -1,9 +1,14 @@
+import React, { useState, useEffect } from 'react';
+
 import "../css/messages.css";
 
 import {data} from "../data/data.js";
 import MessageAvatar from "./MessageAvatar";
 
 function Messages() {
+
+    const [messages, setMessages] = useState([]);
+    
     return(
          data.messages.map(function(obj, i){return(
             <div className="messages_wrapper" key={i}>

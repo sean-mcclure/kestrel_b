@@ -21,7 +21,11 @@ function WriteIcons() {
                 <FaPlus className="write_icons" size="1.7em" color="gold"/>
             </div>
             <div className="write_icons_item">
-                <button className="post_message" onClick={(event) => {events.validate_input.write_textarea()}}>POST</button>
+                <button className="post_message" onClick={(event) => {events.validate_input.write_textarea({
+                    success_function : function() {
+                        events.post()
+                    }
+                })}}>POST</button>
             </div>
         </div>
     )

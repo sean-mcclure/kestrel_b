@@ -3,10 +3,17 @@ import {data} from "../data/data.js";
 import "../css/animations.css"
 import "../css/write.css";
 
+import Parse from "parse";
+
 import Messages from "../components/Messages";
+
+import {setMessages} from "../components/Messages";
 
 var likes = {}
 export var events = {
+    get_current_user : function() {
+        return(Parse.User.current())
+    },
     open_div: function(id) {
         document.getElementById("sidediv").classList.remove("sidediv_close");
         document.getElementById("sidediv").classList.add("sidediv_open");
@@ -17,7 +24,7 @@ export var events = {
         document.getElementById("sidediv").classList.add("sidediv_close");
     },
     validate_input : {
-        write_textarea : function() {
+        write_textarea : function(options) {
             var val = document.getElementById("write_textarea").value;
             if(val === "") {
                 document.getElementById("write_textarea").classList.add("shake_it");
@@ -26,12 +33,27 @@ export var events = {
                     document.getElementById("write_textarea").classList.remove("shake_it");
                     document.getElementById("write_textarea").classList.remove("outline_validate");
                 }, 1000);
+            } else {
+                options.success_function()
+                document.getElementById("write_textarea").value = "";
+                events.close_div();
             }
         }
     },
-
-
-
+    prepare_new_post : function() {
+        var new_post = {
+            user : events.get_current_user(),
+            message : document.getElementById("write_textarea").value,
+            likes : 0,
+            reposts : 0
+        }
+        return(new_post)
+    },
+    post : function() {
+        var new_post = events.prepare_new_post()
+        data.messages.push(new_post)
+        console.log(data)
+    },
     like: function(event) {
         const id = event.currentTarget.id
         const class_instance = utility.get_class_instance("like_icons", id)
