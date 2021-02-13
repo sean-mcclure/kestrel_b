@@ -51,8 +51,7 @@ export var events = {
     },
     post : function() {
         var new_post = events.prepare_new_post()
-        data.messages.push(new_post)
-        console.log(data)
+        data.messages.unshift(new_post)
     },
     like: function(event) {
         const id = event.currentTarget.id

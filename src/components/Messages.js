@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 import "../css/messages.css";
 
@@ -7,8 +7,20 @@ import MessageAvatar from "./MessageAvatar";
 
 function Messages() {
 
-    const [messages, setMessages] = useState([]);
+   function UpdateComponent() {
+        const [value, setValue] = useState(0);
+        return () => setValue(value => value + 1);
+    }
+
+    const update = UpdateComponent();
     
+    useEffect(() => {
+        const interval = setInterval(() => {
+            update();
+        }, 1000);
+        return () => clearInterval(interval);
+    }, []);
+  
     return(
          data.messages.map(function(obj, i){return(
             <div className="messages_wrapper" key={i}>
