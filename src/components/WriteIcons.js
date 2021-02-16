@@ -18,7 +18,7 @@ function WriteIcons() {
                 <FaPoll className="write_icons" size="1.7em" color="gold"/>
             </div>
             <div className="write_icons_item">
-                <FaPlus className="write_icons" size="1.7em" color="gold"/>
+                <FaPlus className="write_icons" size="1.7em" color="gold" onClick={(event) => {events.make_thread()}}/>
             </div>
             <div className="write_icons_item">
                 <button className="post_message" onClick={(event) => {events.validate_input.write_textarea({

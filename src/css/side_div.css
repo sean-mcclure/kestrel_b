@@ -22,6 +22,11 @@
     transition: 0.15s ease-in;
 }
 
+.sidediv_open_mobile {
+    width: 100vw !important;
+    transition: 0.15s ease-in;
+}
+
 .sidediv_close {
     width: 0px !important;
     transition: 0.15s ease-in;
@@ -30,3 +35,6 @@
 #write, #avatar, #direct_messages, #search, #sign_in, #sign_in, #repost, #comment, #poll_show, #img_and_video {
     display: none;
 }
+
+
+ 

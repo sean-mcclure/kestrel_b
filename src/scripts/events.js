@@ -1,5 +1,6 @@
 import {utility} from "./utility.js";
 import {data} from "../data/data.js";
+
 import "../css/animations.css"
 import "../css/write.css";
 
@@ -11,22 +12,27 @@ import {setMessages} from "../components/Messages";
 
 var likes = {}
 export var events = {
-    get_current_user : function() {
-        return(Parse.User.current())
+    get_current_user: function() {
+        return (Parse.User.current())
     },
     open_div: function(id) {
-        document.getElementById("sidediv").classList.remove("sidediv_close");
-        document.getElementById("sidediv").classList.add("sidediv_open");
-         document.getElementById(id).style.display = "block";
-    }, 
-    close_div : function() {
+        if (utility.is_mobile()) {
+            document.getElementById("sidediv").classList.remove("sidediv_close");
+            document.getElementById("sidediv").classList.add("sidediv_open_mobile");
+        } else {
+            document.getElementById("sidediv").classList.remove("sidediv_close");
+            document.getElementById("sidediv").classList.add("sidediv_open");
+        }
+        document.getElementById(id).style.display = "block";
+    },
+    close_div: function() {
         document.getElementById("sidediv").classList.remove("sidediv_open");
         document.getElementById("sidediv").classList.add("sidediv_close");
     },
-    validate_input : {
-        write_textarea : function(options) {
+    validate_input: {
+        write_textarea: function(options) {
             var val = document.getElementById("write_textarea").value;
-            if(val === "") {
+            if (val === "") {
                 document.getElementById("write_textarea").classList.add("shake_it");
                 document.getElementById("write_textarea").classList.add("outline_validate");
                 setTimeout(function() {
@@ -41,21 +47,29 @@ export var events = {
             }
         }
     },
-    prepare_new_post : function() {
+    prepare_new_post: function() {
         var new_post = {
-            user : events.get_current_user(),
-            message : document.getElementById("write_textarea").value,
-            likes : 0,
-            reposts : 0
+            user: events.get_current_user(),
+            message: document.getElementById("write_textarea").value,
+            likes: 0,
+            reposts: 0
         }
-        return(new_post)
+        return (new_post)
     },
-    post : function() {
+    post: function() {
         var new_post = events.prepare_new_post()
         data.messages.unshift(new_post)
     },
-    save_to_parse : function() {
-        JSON.stringify(data)
+    save_to_parse: function() {
+        //JSON.stringify(data)
+    },
+    make_thread: function() {
+        var elem = document.getElementsByClassName("write_item")[1].children[0];
+        var clone = elem.cloneNode(true);
+        clone.classList.add("clone");
+        clone.placeholder = "...";
+        document.getElementsByClassName("write_item")[1].append(clone);
+        document.getElementById("write").style.overflowY = "scroll; -webkit-overflow-scrolling: touch";
     },
     like: function(event) {
         const id = event.currentTarget.id
