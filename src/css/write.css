@@ -13,6 +13,7 @@
 
 .write_item:nth-child(2) {
     padding: 10px;
+    max-height: 200px;
 }
 
 #write_textarea {

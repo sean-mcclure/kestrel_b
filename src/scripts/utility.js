@@ -1,3 +1,6 @@
+import smoothscroll from 'smoothscroll-polyfill';
+smoothscroll.polyfill();
+
 export var utility = {
     call_once_satisfied: function(props) {
         if (props['condition'] === true) {
@@ -19,8 +22,11 @@ export var utility = {
             return false
         }
     },
-    scroll_to_top : function(targe_class) {
-        document.getElementsByClassName(targe_class)[0].scrollTo({top: 0, left: 0, behavior: 'smooth' });
+    scroll_to_top : function(target_class) {
+        document.getElementsByClassName(target_class)[0].scrollTo({top: 0, left: 0, behavior: 'smooth' });
+    },
+    scroll_to_bottom : function(target_class, total_height) {
+        document.getElementsByClassName(target_class)[0].scrollTo({top: total_height, left: 0, behavior: 'smooth' });
     },
     validate_file_size: function(file, max_allowable_in_mb) {
         var FileSize = file.files[0].size / 1024 / 1024;

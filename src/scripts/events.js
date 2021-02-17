@@ -67,9 +67,12 @@ export var events = {
         var elem = document.getElementsByClassName("write_item")[1].children[0];
         var clone = elem.cloneNode(true);
         clone.classList.add("clone");
-        clone.placeholder = "...";
-        document.getElementsByClassName("write_item")[1].append(clone);
-        document.getElementById("write").style.overflowY = "scroll; -webkit-overflow-scrolling: touch";
+        clone.placeholder = (document.getElementsByClassName("write_textarea").length - 1) + "/n";
+        clone.value = "";
+        document.getElementsByClassName("threading")[0].style.overflowY = "scroll";
+        document.getElementsByClassName("threading")[0].append(clone);
+        var total_height = document.getElementsByClassName("write_textarea").length * 170;
+        utility.scroll_to_bottom("threading", total_height);
     },
     like: function(event) {
         const id = event.currentTarget.id

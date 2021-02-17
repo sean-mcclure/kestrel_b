@@ -12,8 +12,8 @@ function Write() {
             <div className="write_item">
                 <Counter/>
             </div>
-            <div className="write_item">
-                <textarea id="write_textarea" placeholder="what's happening?" maxLength="280" onChange = {(event) => {utility.character_counter()}}></textarea>
+            <div className="write_item threading">
+                <textarea id="write_textarea" className="write_textarea" placeholder="what's happening?" maxLength="280" onChange = {(event) => {utility.character_counter()}}></textarea>
             </div>
             <div className="write_item">
                 <WriteIcons/>
