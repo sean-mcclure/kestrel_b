@@ -13,7 +13,10 @@ function Write() {
                 <Counter/>
             </div>
             <div className="write_item threading">
-                <textarea id="write_textarea" className="write_textarea" placeholder="what's happening?" maxLength="280" onChange = {(event) => {utility.character_counter()}}></textarea>
+                <textarea id="write_textarea" className="write_textarea" placeholder="what's happening?" maxLength="280" onChange = {(event) => {utility.character_counter(event)}} onClick={(event) => {
+                    var cnt = 280 - document.getElementById(event.target.id).value.length;
+                    document.getElementById("show_count").innerText = cnt;
+                }}></textarea>
             </div>
             <div className="write_item">
                 <WriteIcons/>

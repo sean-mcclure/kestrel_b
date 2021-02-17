@@ -67,6 +67,15 @@ export var events = {
         var elem = document.getElementsByClassName("write_item")[1].children[0];
         var clone = elem.cloneNode(true);
         clone.classList.add("clone");
+        var clone_id = "write_textarea_" + (document.getElementsByClassName("write_textarea").length - 1);
+        clone.id = clone_id;
+        clone.addEventListener("click", (event) => {
+            var cnt = 280 - document.getElementById(event.target.id).value.length;
+            document.getElementById("show_count").innerText = cnt;
+        });
+        clone.addEventListener("input", (event) => {
+            utility.character_counter(event)
+        });
         clone.placeholder = (document.getElementsByClassName("write_textarea").length - 1) + "/n";
         clone.value = "";
         document.getElementsByClassName("threading")[0].style.overflowY = "scroll";
@@ -88,13 +97,6 @@ export var events = {
             document.getElementsByClassName("like_count")[class_instance].innerHTML = likes[id];
             document.getElementById(id).style.color = "#3D3D3D";
         }
-    },
-    clone_and_append: function(id, to_class_name, to_instance) {
-        var elem = document.getElementById(id);
-        var clone = elem.cloneNode(true);
-        clone.id = id + "_clone";
-        clone.classList.add("clone");
-        document.getElementsByClassName(to_class_name)[to_instance].append(clone);
     },
     uploadFile: function(file) {
         const cloudName = 'dllmrcc0h';

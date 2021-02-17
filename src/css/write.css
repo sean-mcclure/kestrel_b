@@ -16,7 +16,7 @@
     max-height: 200px;
 }
 
-#write_textarea {
+.write_textarea {
     width: 94% !important;
     height: 150px;
     background: #665c5c;

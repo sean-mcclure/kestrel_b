@@ -36,9 +36,8 @@ export var utility = {
             return ("allowed")
         }
     },
-    character_counter: function() {
-        var cnt = 280 - document.getElementById("write_textarea").value.length;
-        console.log(cnt)
+    character_counter: function(event) {
+        var cnt = 280 - document.getElementById(event.target.id).value.length;
         document.getElementById("show_count").innerText = cnt;
         if (cnt > 50 && cnt <= 280) {
             document.getElementById("show_count").style.color = "whitesmoke";
