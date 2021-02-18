@@ -2,6 +2,7 @@
     width: 0px;
     height: 100vh;
     overflow-x: hidden;
+    overflow-y: hidden;
     right: 0;
     position: absolute;
     background: rgba(61, 61, 61, 1);

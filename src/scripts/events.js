@@ -78,10 +78,9 @@ export var events = {
         });
         clone.placeholder = (document.getElementsByClassName("write_textarea").length - 1) + "/n";
         clone.value = "";
-        document.getElementsByClassName("threading")[0].style.overflowY = "scroll";
         document.getElementsByClassName("threading")[0].append(clone);
         var total_height = document.getElementsByClassName("write_textarea").length * 170;
-        utility.scroll_to_bottom("threading", total_height);
+        utility.scroll_to_bottom("write_wrapper", total_height);
     },
     like: function(event) {
         const id = event.currentTarget.id
