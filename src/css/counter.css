@@ -1,8 +1,7 @@
-#show_count {
-    margin-top: 10px;
-    position: fixed;
-    bottom: 50;
-    background: pink;
-    color: #141414 !important;
-    padding: 10px;
+.show_count {
+    background: #987935;
+    border-radius: 3px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    width: 100%;
 }

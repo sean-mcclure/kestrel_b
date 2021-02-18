@@ -11,7 +11,6 @@ import {
 function Close() {
     return(
         <div className="hold_close">
-        <Counter/>
         <FaTimes id="close" onClick={(event) => {
             events.close_div()
         }}/>

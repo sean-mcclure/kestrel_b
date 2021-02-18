@@ -28,10 +28,10 @@ function SideDiv() {
                 <SignIn/>
             </div>
             <div id="repost">
-                <Write/>
+             {/*<Write/>*/}
             </div>
             <div id="comment">
-                <Write/>
+                 {/*<Write/>*/}
             </div>
             <div id="poll_show">
                 <Poll/>

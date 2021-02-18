@@ -37,15 +37,20 @@ export var utility = {
         }
     },
     character_counter: function(event) {
-        var cnt = 280 - document.getElementById(event.target.id).value.length;
-        document.getElementById("show_count").innerText = cnt;
+
+        const elem = document.getElementById(event.target.id);
+
+        var cnt = 280 - elem.value.length;
+        elem.previousElementSibling.innerText = cnt;
+
         if (cnt > 50 && cnt <= 280) {
-            document.getElementById("show_count").style.color = "whitesmoke";
+            elem.previousSibling.style.color = "whitesmoke";
         } else if (cnt > 0 && cnt <= 50) {
-            document.getElementById("show_count").style.color = "yellow";
+            elem.previousSibling.style.color = "yellow";
         } else {
-            document.getElementById("show_count").style.color = "red";
+            elem.previousSibling.style.color = "red";
         }
+    
     },
     get_class_instance: function get_class_instance(classname, id) {
         const elems = document.getElementsByClassName(classname);

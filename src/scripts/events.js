@@ -11,6 +11,7 @@ import Messages from "../components/Messages";
 import {setMessages} from "../components/Messages";
 
 var likes = {}
+var clone_cnt = 0;
 export var events = {
     get_current_user: function() {
         return (Parse.User.current())
@@ -64,23 +65,35 @@ export var events = {
         //JSON.stringify(data)
     },
     make_thread: function() {
+
+        clone_cnt++;
+
         var elem = document.getElementsByClassName("write_item")[1].children[0];
         var clone = elem.cloneNode(true);
         clone.classList.add("clone");
-        var clone_id = "write_textarea_" + (document.getElementsByClassName("write_textarea").length - 1);
-        clone.id = clone_id;
-        clone.addEventListener("click", (event) => {
+
+        clone.children[0].innerText = "280";
+
+        var clone_id = "write_textarea_" + clone_cnt;
+        clone.children[1].id = clone_id;
+
+        clone.children[1].addEventListener("click", (event) => {
             var cnt = 280 - document.getElementById(event.target.id).value.length;
-            document.getElementById("show_count").innerText = cnt;
+            document.getElementsByClassName("show_count")[clone_cnt].innerText = cnt;
         });
-        clone.addEventListener("input", (event) => {
+
+        clone.children[1].addEventListener("input", (event) => {
             utility.character_counter(event)
         });
-        clone.placeholder = (document.getElementsByClassName("write_textarea").length - 1) + "/n";
-        clone.value = "";
+
+        clone.children[1].placeholder = (document.getElementsByClassName("write_textarea").length + 1) + "/n";
+        clone.children[1].value = "";
+
         document.getElementsByClassName("threading")[0].append(clone);
+        
         var total_height = document.getElementsByClassName("write_textarea").length * 170;
         utility.scroll_to_bottom("write_wrapper", total_height);
+
     },
     like: function(event) {
         const id = event.currentTarget.id
