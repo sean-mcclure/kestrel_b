@@ -5,15 +5,21 @@
     grid-template-rows : auto auto 1fr;
     grid-template-columns: 100%;
     grid-gap: 10px;
+    position: absolute;
+    padding-bottom: 150px;
 }
 
 .write_item {
     background: transparent;
 }
 
+.write_item:nth-child(1) {
+    position: fixed;
+    width: 100%;
+}
+
 .write_item:nth-child(2) {
     padding: 10px;
-    max-height: 200px;
 }
 
 .write_textarea {

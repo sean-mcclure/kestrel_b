@@ -10,7 +10,7 @@ function Write() {
     return (
         <div className="write_wrapper">
             <div className="write_item">
-                <Counter/>
+                
             </div>
             <div className="write_item threading">
                 <textarea id="write_textarea" className="write_textarea" placeholder="what's happening?" maxLength="280" onChange = {(event) => {utility.character_counter(event)}} onClick={(event) => {

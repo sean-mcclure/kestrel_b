@@ -1,0 +1,8 @@
+#show_count {
+    margin-top: 10px;
+    position: fixed;
+    bottom: 50;
+    background: pink;
+    color: #141414 !important;
+    padding: 10px;
+}
