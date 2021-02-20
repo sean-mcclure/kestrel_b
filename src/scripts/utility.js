@@ -43,6 +43,8 @@ export var utility = {
         var cnt = 280 - elem.value.length;
         elem.previousElementSibling.innerText = cnt;
 
+        elem.previousElementSibling.parentElement.children[0].style.width = (362 - cnt).toString() + "px"
+
         if (cnt > 50 && cnt <= 280) {
             elem.previousSibling.style.color = "whitesmoke";
         } else if (cnt > 0 && cnt <= 50) {

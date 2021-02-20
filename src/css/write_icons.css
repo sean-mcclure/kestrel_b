@@ -1,11 +1,11 @@
 .write_icons_wrapper {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: 380px;
     height: 60px;
+    position: absolute;
     bottom: 0;
-    left: 0;
-    position: fixed;
+    right: 0;
     background: gold;
 }
 
@@ -36,4 +36,10 @@
     margin-top: 16px;
     margin-right: 20px;
     cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+    .write_icons_wrapper {
+        width: 100% !important;
+    }
 }
