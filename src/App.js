@@ -21,6 +21,7 @@ function App() {
       <div className="body_wrapper">
           <div className="body_wrapper_item">
               <img className="logo" src={logo} alt="logo"></img>
+              <Footer/>
               <FaFeatherAlt color="#F3B32B" size="2em" className="click_to_write" onClick={(event) => {events.open_div("write")}}/>
           </div>
           <div className="body_wrapper_item">
@@ -31,9 +32,6 @@ function App() {
                   <div className="inside_wrapper_item"></div>
                   <div className="inside_wrapper_item"></div>
               </div>
-          </div>
-          <div className="body_wrapper_item">
-              <Footer/>
           </div>
       </div>
     </>

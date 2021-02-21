@@ -17,6 +17,7 @@
     font-family: "Oswald";
     font-size: 16px;
     border: 1px solid gold;
+    margin-top: -14px;
 }
 
 .tooltip::before {
@@ -39,9 +40,9 @@
 
 .tooltip.top::after {
 	content: attr(data-tooltip_text);
-	top: 0;
+	top: 1;
 	left: 50%;
-	transform: translate(-50%, calc(-100% - 10px));
+	transform: translate(-50%);
 }
 
 .tooltip.top::before {

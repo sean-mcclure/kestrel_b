@@ -2,8 +2,9 @@
     display: flex;
 	flex-direction: row;
 	justify-content: space-around;
-    background: #313030;
-    height: 100%;
+    background: transparent;
+    height: 100px;
+    width: 70%;
 }
 
 .sign_in {
@@ -16,8 +17,35 @@
 .options_icons {
     margin: 20px;
     cursor: pointer;
+    font-size: 14px;
+    margin-top: 25px;
 }
 
 .options_icons:hover {
     color:  #F3B32B !important;
 } 
+
+@media only screen and (max-width: 600px) {
+    .footer {
+        position: fixed;
+        bottom: 0;
+        width: 100vw !important;
+        background: #3D3D3D;
+        height: 50px;
+    }
+    .logo {
+        margin-left: -70px;
+    }
+    .click_to_write {
+        margin-right: -50px;
+    }
+    .write_icons_wrapper {
+        display: none;
+    }
+    .options_icons { 
+        margin: 14px;
+    }
+    .sign_in {
+        margin-top: 14px;
+    }
+}
