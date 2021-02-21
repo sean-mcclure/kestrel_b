@@ -46,7 +46,7 @@ export var utility = {
         elem.previousElementSibling.parentElement.children[0].style.width = (80 + cnt).toString() + "px";
 
         if (cnt > 50 && cnt <= 280) {
-            elem.previousSibling.style.color = "whitesmoke";
+            elem.previousSibling.style.color = "#141414";
         } else if (cnt > 0 && cnt <= 50) {
             elem.previousSibling.style.color = "yellow";
             elem.previousElementSibling.classList.remove("shake_it");

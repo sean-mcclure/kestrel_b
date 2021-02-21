@@ -19,12 +19,13 @@
 
 .write_item:nth-child(2) {
     padding: 10px;
+    background: #d1ccc0;
 }
 
 .write_textarea {
-    width: 95% !important;
+    width: 95%;
     height: 150px;
-    background: #665c5c;
+    background: #227093;
     resize: none;
     padding: 10px;
     font-family: Oswald;

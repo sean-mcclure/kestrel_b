@@ -6,7 +6,7 @@
     position: absolute;
     bottom: 0;
     right: 0;
-    background: gold;
+    background: #F3B32B;
 }
 
 .write_icons_item {
@@ -26,20 +26,25 @@
 }
 
 .post_message {
-    height: 50%;
+    height: 60%;
     width: auto;
     background: #141414;
-    color: gold;
+    color: #F3B32B;
     border: none;
     border-radius: 3px;
     font-size: 18px;
-    margin-top: 16px;
+    font-weight: bold;
+    font-family: Oswald;
+    margin-top: 12px;
     margin-right: 20px;
     cursor: pointer;
+    padding: 20px;
+    padding-top: 3px;
 }
 
 @media only screen and (max-width: 600px) {
     .write_icons_wrapper {
         width: 100% !important;
+        position: fixed;
     }
 }

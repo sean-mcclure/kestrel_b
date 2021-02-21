@@ -1,7 +1,8 @@
 .show_count {
-    background: #987935;
+    background: #F3B32B;
     border-radius: 3px;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
     width: 100%;
+    color: #141414;
 }

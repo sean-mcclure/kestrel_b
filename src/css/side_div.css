@@ -5,7 +5,7 @@
     overflow-y: hidden;
     right: 0;
     position: absolute;
-    background: rgba(61, 61, 61, 1);
+    background: #d1ccc0;
     box-shadow: 2px 2px 40px #141414;
     z-index: 999999;
     font-family: "Oswald";
