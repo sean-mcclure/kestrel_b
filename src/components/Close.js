@@ -11,7 +11,7 @@ import {
 function Close() {
     return(
         <div className="hold_close">
-         <h2 className="write_title">WHAT'S HAPPENING</h2>
+         <h2 className="write_title">WHAT'S HAPPENING?</h2>
         <FaTimes id="close" onClick={(event) => {
             events.close_div()
         }}/>
