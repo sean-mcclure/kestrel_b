@@ -20,6 +20,7 @@ export var events = {
         if (utility.is_mobile()) {
             document.getElementById("sidediv").classList.remove("sidediv_close");
             document.getElementById("sidediv").classList.add("sidediv_open_mobile");
+            document.getElementsByClassName("write_icons_wrapper")[0].style.visibility = "visible";
         } else {
             document.getElementById("sidediv").classList.remove("sidediv_close");
             document.getElementById("sidediv").classList.add("sidediv_open");
@@ -29,6 +30,9 @@ export var events = {
     close_div: function() {
         document.getElementById("sidediv").classList.remove("sidediv_open");
         document.getElementById("sidediv").classList.add("sidediv_close");
+        if(utility.is_mobile()) {
+            document.getElementsByClassName("write_icons_wrapper")[0].style.visibility = "hidden";
+        }
     },
     validate_input: {
         write_textarea: function(options) {

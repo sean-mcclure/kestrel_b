@@ -1,7 +1,7 @@
 .footer {
     display: flex;
 	flex-direction: row;
-	justify-content: space-around;
+	justify-content: space-evenly;
     background: transparent;
     height: 100px;
     width: 70%;
@@ -30,8 +30,9 @@
         position: fixed;
         bottom: 0;
         width: 100vw !important;
-        background: #3D3D3D;
+        background: #F3B32B;
         height: 50px;
+        justify-content: space-between;
     }
     .logo {
         margin-left: -70px;
@@ -39,11 +40,9 @@
     .click_to_write {
         margin-right: -50px;
     }
-    .write_icons_wrapper {
-        display: none;
-    }
     .options_icons { 
-        margin: 14px;
+        margin: 12px;
+        color: #141414 !important;
     }
     .sign_in {
         margin-top: 14px;
