@@ -43,14 +43,16 @@ export var utility = {
         var cnt = 280 - elem.value.length;
         elem.previousElementSibling.innerText = cnt;
 
-        elem.previousElementSibling.parentElement.children[0].style.width = (362 - cnt).toString() + "px"
+        elem.previousElementSibling.parentElement.children[0].style.width = (80 + cnt).toString() + "px";
 
         if (cnt > 50 && cnt <= 280) {
             elem.previousSibling.style.color = "whitesmoke";
         } else if (cnt > 0 && cnt <= 50) {
             elem.previousSibling.style.color = "yellow";
+            elem.previousElementSibling.classList.remove("shake_it");
         } else {
-            elem.previousSibling.style.color = "red";
+            elem.previousSibling.style.color = "#27ff00";
+            elem.previousElementSibling.classList.add("shake_it");
         }
     
     },
