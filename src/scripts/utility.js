@@ -51,7 +51,7 @@ export var utility = {
             elem.previousSibling.style.color = "yellow";
             elem.previousElementSibling.classList.remove("shake_it");
         } else {
-            elem.previousSibling.style.color = "#27ff00";
+            elem.previousSibling.style.color = "rgb(255 0 0)";
             elem.previousElementSibling.classList.add("shake_it");
         }
     

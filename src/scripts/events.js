@@ -77,24 +77,25 @@ export var events = {
         clone.classList.add("clone");
 
         clone.children[0].innerText = "280";
+        clone.children[0].style.width = "100%";
+        clone.children[1].value = "";
+        clone.children[2].innerHTML += "<div style='color: deeppink; float: right; cursor: pointer; font-weight: bold; font-size: 20px'>X</div>";
 
         var clone_id = "write_textarea_" + clone_cnt;
         clone.children[1].id = clone_id;
-
-        clone.children[1].addEventListener("click", (event) => {
-            var cnt = 280 - document.getElementById(event.target.id).value.length;
-            document.getElementsByClassName("show_count")[clone_cnt].innerText = cnt;
-        });
 
         clone.children[1].addEventListener("input", (event) => {
             utility.character_counter(event)
         });
 
-        clone.children[1].placeholder = (document.getElementsByClassName("write_textarea").length + 1) + "/n";
-        clone.children[1].value = "";
-
         document.getElementsByClassName("threading")[0].append(clone);
-        
+
+        var elems = document.getElementsByClassName("clone");
+        for(var i = 0; i < elems.length; i++) {
+            elems[i].children[1].placeholder = (i + 2).toString() + "/" + (elems.length + 1).toString();
+            document.getElementById("write_textarea").placeholder = "1/" + (elems.length + 1).toString();
+        }
+
         var total_height = document.getElementsByClassName("write_textarea").length * 170;
         utility.scroll_to_bottom("write_wrapper", total_height);
 

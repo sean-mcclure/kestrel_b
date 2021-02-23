@@ -15,7 +15,7 @@ function Write() {
             <div className="write_item threading">
                 <div className="textarea_wrapper">
                     <Counter/>
-                    <textarea id="write_textarea" className="write_textarea" placeholder="what's happening?" maxLength="280"
+                    <textarea id="write_textarea" className="write_textarea" placeholder="1/n" maxLength="280"
                         onChange = {(event) => {
                             utility.character_counter(event);
                         }}
@@ -23,6 +23,7 @@ function Write() {
                             var cnt = 280 - document.getElementById(event.target.id).value.length;
                             document.getElementsByClassName("show_count")[0].innerText = cnt;
                     }}></textarea>
+                    <div className="hold_remove"></div>
                 </div>
             </div>
             <div className="write_item">
