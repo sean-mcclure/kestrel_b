@@ -120,6 +120,8 @@ export var events = {
             elems[0].remove();
         }
         document.getElementById("write_textarea").placeholder = "1/n";
+        document.getElementsByClassName("show_count")[0].innerText = "280";
+        document.getElementsByClassName("show_count")[0].style.width = "100%";
     },
     like: function(event) {
         const id = event.currentTarget.id
