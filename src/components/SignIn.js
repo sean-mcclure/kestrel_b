@@ -16,17 +16,17 @@ export function Avatar() {
 
         <div className="sign_in_up_wrapper">
 
-            <button id="sign_in" className="submit_options" onClick={(event) => {
+            <button id="sign_in_button" className="submit_options" onClick={(event) => {
                 events.sign_in_toggle(event)
             }}>SIGN IN</button>
-            <button id="sign_up" className="submit_options" onClick={(event) => {
+            <button id="sign_up_button" className="submit_options" onClick={(event) => {
                 events.sign_in_toggle(event)
             }}>SIGN UP</button>
         </div>
 
             <div id="hold_inputs">
                 <div><input className="sign_in_input input_1" placeholder="email..." spellCheck="false" maxLength="100"></input></div>
-                <div><input className="sign_in_input" placeholder="password..." type="password" spellCheck="false" maxLength="100"></input></div>
+                <div><input className="sign_in_input sign_in_pass" placeholder="password..." type="password" spellCheck="false" maxLength="100"></input></div>
                 <div><h4 className="forgot_pass">forgot password?</h4></div>
             </div>
             

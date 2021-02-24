@@ -4,10 +4,6 @@
     font-size: 20px;
 }
 
-.sign_in_close {
-    display: none;
-}
-
 .sign_in_input,
 .search_input {
 	height: 40px;

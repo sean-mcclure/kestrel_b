@@ -33,7 +33,7 @@
     transition: 0.15s ease-in;
 }
 
-#write, #avatar, #direct_messages, #search, #sign_in, #sign_in, #repost, #comment, #poll_show, #img_and_video {
+#write, #avatar, #direct_messages, #search, #repost, #comment, #poll_show, #img_and_video {
     display: none;
 }
 

@@ -177,35 +177,35 @@ export var events = {
     },
     sign_in_toggle : function(event) {
         const id = event.target.id;
-        const sign_in = document.getElementById("sign_in");
-        const sign_up = document.getElementById("sign_up");
-        if(id === "sign_in") {
+        const sign_in = document.getElementById("sign_in_button");
+        const sign_up = document.getElementById("sign_up_button");
+        const sign_in_pass = document.getElementsByClassName("sign_in_pass")[0];
+        const forogt_pass = document.getElementsByClassName("forgot_pass")[0];
+        if(id === "sign_in_button") {
             sign_in.style.background = "gold";
+            sign_in.style.color = "#141414";
+            sign_up.style.color = "whitesmoke";
             sign_up.style.background = "grey";
             sign_in.style.pointerEvents = "none";
             sign_up.style.pointerEvents = "auto";
+            document.getElementById("hold_inputs_clone").remove();
+            document.getElementsByClassName("forgot_pass")[0].style.display = "block";
+            sign_in_pass.placeholder = "password...";
         } else {
             sign_in.style.background = "grey";
             sign_up.style.background = "gold";
+            sign_in.style.color = "whitesmoke";
+            sign_up.style.color = "#141414";
             sign_in.style.pointerEvents = "auto";
             sign_up.style.pointerEvents = "none";
-
-            document.getElementsByClassName("forgot_pass")[0].style.display = "none";
-                document.getElementById("hold_inputs").innerHTML += "<div><input id='repeat_pass' className='sign_in_input' placeholder='confirm password...' type='password' spellCheck='false' maxLength='100'></input></div>";
-                document.getElementById("hold_inputs").innerHTML += "<div class='at_symbol'>@<input class='handle' placeholder='choose a handle...' spellcheck='false' maxLength='30'></input></div>";
-                document.getElementsByClassName("handle")[0].style.marginBottom = "30px";
-                document.getElementById("repeat_pass").classList.add("sign_in_input");
-                document.getElementById("sign_in").style.background = "grey";
-                document.getElementById("sign_up").style.background = "gold";
-                document.getElementById("sign_up").style.color = "#141414";
-                document.getElementById("sign_in").style.pointerEvents = "auto";
-                document.getElementById("sign_up").style.pointerEvents = "none";
-
+            forogt_pass.style.display = "none";
+            const clone = sign_in_pass.cloneNode(true);
+            clone.id = "hold_inputs_clone";
+            clone.placeholder = "retype password...";
+            document.getElementById("hold_inputs").append(clone);
+            sign_in_pass.placeholder = "choose password...";
 
         }
-        document.getElementById("repeat_pass").remove();
-        document.getElementsByClassName("forgot_pass")[0].style.display = "block";
-        document.getElementsByClassName("at_symbol")[0].remove();
     },
     like: function(event) {
         const id = event.currentTarget.id
