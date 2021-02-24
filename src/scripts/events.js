@@ -62,8 +62,9 @@ export var events = {
         return (new_post)
     },
     post: function() {
-        var new_post = events.prepare_new_post()
-        data.messages.unshift(new_post)
+        var new_post = events.prepare_new_post();
+        data.messages.unshift(new_post);
+        events.clear_threads()
     },
     save_to_parse: function() {
         //JSON.stringify(data)
@@ -78,11 +79,19 @@ export var events = {
 
         clone.children[0].innerText = "280";
         clone.children[0].style.width = "100%";
+        clone.children[1].style.boxShadow = "none";
         clone.children[1].value = "";
-        clone.children[2].innerHTML += "<div style='color: deeppink; float: right; cursor: pointer; font-weight: bold; font-size: 20px'>X</div>";
 
         var clone_id = "write_textarea_" + clone_cnt;
         clone.children[1].id = clone_id;
+
+        clone.children[1].addEventListener("click", (event) => {
+            var areas = document.getElementsByClassName("write_textarea");
+            for(var i=0; i<areas.length; i++) {
+                areas[i].style.boxShadow = "none";
+            }
+            document.getElementById(event.target.id).style.boxShadow = "0px 10px 10px #3D3D3D";
+        });
 
         clone.children[1].addEventListener("input", (event) => {
             utility.character_counter(event)
@@ -94,11 +103,23 @@ export var events = {
         for(var i = 0; i < elems.length; i++) {
             elems[i].children[1].placeholder = (i + 2).toString() + "/" + (elems.length + 1).toString();
             document.getElementById("write_textarea").placeholder = "1/" + (elems.length + 1).toString();
+            if(i === elems.length-1) {
+                elems[i].children[1].style.marginBottom = "100px";
+            } else {
+                elems[i].children[1].style.marginBottom = "0px";
+            }  
         }
 
-        var total_height = document.getElementsByClassName("write_textarea").length * 170;
+        var total_height = document.getElementsByClassName("write_textarea").length * 200;
         utility.scroll_to_bottom("write_wrapper", total_height);
 
+    },
+    clear_threads : function() {
+        var elems = document.getElementsByClassName("clone");
+        while(elems.length > 0) {
+            elems[0].remove();
+        }
+        document.getElementById("write_textarea").placeholder = "1/n";
     },
     like: function(event) {
         const id = event.currentTarget.id

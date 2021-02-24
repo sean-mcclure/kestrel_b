@@ -20,10 +20,12 @@ function Write() {
                             utility.character_counter(event);
                         }}
                         onClick={(event) => {
-                            var cnt = 280 - document.getElementById(event.target.id).value.length;
-                            document.getElementsByClassName("show_count")[0].innerText = cnt;
+                            var areas = document.getElementsByClassName("write_textarea");
+                            for(var i=0; i<areas.length; i++) {
+                                areas[i].style.boxShadow = "none";
+                            }
+                            document.getElementById(event.target.id).style.boxShadow = "0px 10px 10px #3D3D3D";
                     }}></textarea>
-                    <div className="hold_remove"></div>
                 </div>
             </div>
             <div className="write_item">
