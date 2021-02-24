@@ -17,22 +17,66 @@ export var events = {
         return (Parse.User.current())
     },
     open_div: function(id) {
+        const sidediv = document.getElementById("sidediv");
         if (utility.is_mobile()) {
-            document.getElementById("sidediv").classList.remove("sidediv_close");
-            document.getElementById("sidediv").classList.add("sidediv_open_mobile");
+            sidediv.classList.remove("sidediv_close");
+            sidediv.classList.add("sidediv_open_mobile");
             document.getElementsByClassName("write_icons_wrapper")[0].style.visibility = "visible";
         } else {
-            document.getElementById("sidediv").classList.remove("sidediv_close");
-            document.getElementById("sidediv").classList.add("sidediv_open");
+            sidediv.classList.remove("sidediv_close");
+            sidediv.classList.add("sidediv_open");
         }
+        events.clear_other_side_divs(id);
+        events.clear_close();
+        events.set_side_div_title(id);
         document.getElementById(id).style.display = "block";
+        events.clear_close();
+        events.clear_close();
+        events.set_side_div_background(id);
     },
     close_div: function() {
-        document.getElementById("sidediv").classList.remove("sidediv_open");
-        document.getElementById("sidediv").classList.add("sidediv_close");
+        const sidediv = document.getElementById("sidediv");
+        sidediv.classList.remove("sidediv_open");
+        sidediv.classList.add("sidediv_close");
         if(utility.is_mobile()) {
             document.getElementsByClassName("write_icons_wrapper")[0].style.visibility = "hidden";
         }
+    },
+    clear_other_side_divs : function(pass_id) {
+        var ids = ["write", "avatar", "direct_messages", "search", "sign_in", "repost", "comment", "poll_show", "img_and_video"]
+        ids.forEach(function(id) {
+            if(id !== pass_id) {
+                document.getElementById(id).style.display = "none";
+            }
+        })
+    },
+    set_side_div_title : function(id) {
+        var titles = {
+            write : "WHAT'S HAPPENING?",
+            avatar: "SIGN IN",
+            direct_messages: "DIRECT MESSAGES",
+            search: "SEARCH",
+            sign_in: "SIGN IN",
+            repost: "REPOST",
+            comment: "COMMENT",
+            poll_show: "POLL",
+            img_and_video: "IMAGES/VIDEOS"
+        }
+        document.getElementsByClassName("write_title")[0].innerHTML = titles[id];
+    },
+    set_side_div_background : function(id) {
+        var colors = {
+            write : "#d1ccc0",
+            avatar: "#d1ccc0",
+            direct_messages: "#d1ccc0",
+            search: "#d1ccc0",
+            sign_in: "#3d3d3d",
+            repost: "#d1ccc0",
+            comment: "#d1ccc0",
+            poll_show: "#d1ccc0",
+            img_and_video: "#d1ccc0"
+        }
+        document.getElementById("sidediv").style.background = colors[id];;
     },
     validate_input: {
         write_textarea: function(options) {
@@ -114,6 +158,14 @@ export var events = {
         utility.scroll_to_bottom("write_wrapper", total_height);
 
     },
+    clear_close : function() {
+        var elems = document.getElementsByClassName("hold_close");
+        for(var i=0; i<elems.length; i++) {
+            if(i !== 0) {
+                elems[i].remove();
+            }
+        }
+    },
     clear_threads : function() {
         var elems = document.getElementsByClassName("clone");
         while(elems.length > 0) {
@@ -122,6 +174,38 @@ export var events = {
         document.getElementById("write_textarea").placeholder = "1/n";
         document.getElementsByClassName("show_count")[0].innerText = "280";
         document.getElementsByClassName("show_count")[0].style.width = "100%";
+    },
+    sign_in_toggle : function(event) {
+        const id = event.target.id;
+        const sign_in = document.getElementById("sign_in");
+        const sign_up = document.getElementById("sign_up");
+        if(id === "sign_in") {
+            sign_in.style.background = "gold";
+            sign_up.style.background = "grey";
+            sign_in.style.pointerEvents = "none";
+            sign_up.style.pointerEvents = "auto";
+        } else {
+            sign_in.style.background = "grey";
+            sign_up.style.background = "gold";
+            sign_in.style.pointerEvents = "auto";
+            sign_up.style.pointerEvents = "none";
+
+            document.getElementsByClassName("forgot_pass")[0].style.display = "none";
+                document.getElementById("hold_inputs").innerHTML += "<div><input id='repeat_pass' className='sign_in_input' placeholder='confirm password...' type='password' spellCheck='false' maxLength='100'></input></div>";
+                document.getElementById("hold_inputs").innerHTML += "<div class='at_symbol'>@<input class='handle' placeholder='choose a handle...' spellcheck='false' maxLength='30'></input></div>";
+                document.getElementsByClassName("handle")[0].style.marginBottom = "30px";
+                document.getElementById("repeat_pass").classList.add("sign_in_input");
+                document.getElementById("sign_in").style.background = "grey";
+                document.getElementById("sign_up").style.background = "gold";
+                document.getElementById("sign_up").style.color = "#141414";
+                document.getElementById("sign_in").style.pointerEvents = "auto";
+                document.getElementById("sign_up").style.pointerEvents = "none";
+
+
+        }
+        document.getElementById("repeat_pass").remove();
+        document.getElementsByClassName("forgot_pass")[0].style.display = "block";
+        document.getElementsByClassName("at_symbol")[0].remove();
     },
     like: function(event) {
         const id = event.currentTarget.id
