@@ -10,6 +10,8 @@ import Messages from "../components/Messages";
 
 import {setMessages} from "../components/Messages";
 
+var eye_cnt = 0;
+
 var likes = {}
 var clone_cnt = 0;
 export var events = {
@@ -181,6 +183,7 @@ export var events = {
         const sign_up = document.getElementById("sign_up_button");
         const sign_in_pass = document.getElementsByClassName("sign_in_pass")[0];
         const forogt_pass = document.getElementsByClassName("forgot_pass")[0];
+        const clone = document.getElementById("hold_inputs_clone");
         if(id === "sign_in_button") {
             sign_in.style.background = "gold";
             sign_in.style.color = "#141414";
@@ -188,7 +191,9 @@ export var events = {
             sign_up.style.background = "grey";
             sign_in.style.pointerEvents = "none";
             sign_up.style.pointerEvents = "auto";
-            document.getElementById("hold_inputs_clone").remove();
+            if(typeof(clone) !== "undefined") {
+                clone.remove();
+            }
             document.getElementsByClassName("forgot_pass")[0].style.display = "block";
             sign_in_pass.placeholder = "password...";
         } else {
@@ -202,6 +207,7 @@ export var events = {
             const clone = sign_in_pass.cloneNode(true);
             clone.id = "hold_inputs_clone";
             clone.placeholder = "retype password...";
+            clone.value = "";
             document.getElementById("hold_inputs").append(clone);
             sign_in_pass.placeholder = "choose password...";
 
@@ -248,9 +254,8 @@ export var events = {
         utility.spinner();
         if (document.getElementsByClassName(options.input_class)[0].value !== "" && document.getElementsByClassName(options.input_class)[1].value !== "") {
             if (document.getElementsByClassName(options.input_class)[0].value.indexOf("@") === -1) {
-                alert(options.fail_message_1)
             } else {
-                if (document.getElementById("sign_up").style.background === "gold") { // new user (registering)
+                if (window.sign_in_up_choice === "sign_up") { // new user (registering)
                     options.new_user_function();
                 } else { // existing user (signing in)
                     options.existing_user_function();
@@ -259,10 +264,18 @@ export var events = {
         } else {
             alert(options.fail_message_2)
         }
-        if (document.getElementById("sign_up").style.background === "gold") {
+        if (window.sign_in_up_choice === "sign_up") {
             document.getElementsByClassName("loader")[0].style.marginTop = "60px";
         } else {
             document.getElementsByClassName("loader")[0].style.marginTop = "80px";
+        }
+    },
+    toggle_password_eye : function() {
+        eye_cnt++;
+        if(eye_cnt % 2 === 0) {
+            document.getElementsByClassName("sign_in_pass")[0].type = "password";
+        } else {
+            document.getElementsByClassName("sign_in_pass")[0].type = "text";
         }
     },
     click_back_poll: function(e) {

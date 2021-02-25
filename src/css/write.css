@@ -58,3 +58,7 @@
 .outline_validate {
     border : 2px solid red !important;
 }
+
+.loader {
+    display: none;
+}

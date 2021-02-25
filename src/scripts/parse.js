@@ -74,4 +74,3 @@ export function check_if_user_signed_in() {
     }
     return (res)
 }
-

@@ -27,6 +27,7 @@ function Write() {
                             document.getElementById(event.target.id).style.boxShadow = "0px 10px 10px #3D3D3D";
                     }}></textarea>
                 </div>
+                <div className="loader"></div>
             </div>
             <div className="write_item">
                 <WriteIcons/>

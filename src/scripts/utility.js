@@ -1,4 +1,6 @@
 import smoothscroll from 'smoothscroll-polyfill';
+import "../css/loader.css";
+
 smoothscroll.polyfill();
 
 export var utility = {
@@ -28,6 +30,12 @@ export var utility = {
     scroll_to_bottom : function(target_class, total_height) {
         document.getElementsByClassName(target_class)[0].scrollTo({top: total_height, left: 0, behavior: 'smooth' });
     },
+    spinner : function() {
+    document.getElementsByClassName("loader")[0].style.display = "block";
+    setTimeout(function() {
+        document.getElementsByClassName("loader")[0].style.display = "none";
+    }, 2000)
+},
     validate_file_size: function(file, max_allowable_in_mb) {
         var FileSize = file.files[0].size / 1024 / 1024;
         if (FileSize > max_allowable_in_mb) {
