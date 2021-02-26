@@ -8,3 +8,11 @@
     margin-top: 30px;
     margin-left: 20px;
 }
+
+.dir_msg_text {
+    font-size: 19px;
+    font-family: Oswald;
+    color: #141414;
+    text-align: left;
+    margin-left: 20px;
+}

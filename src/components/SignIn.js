@@ -56,7 +56,7 @@ export function Avatar() {
                             sign_in_user(email, password)
                         }
                     })
-                }}>SUBMIT</button>
+                }}>LET'S GO</button>
             </div>
         <div className="loader"></div>
          </>

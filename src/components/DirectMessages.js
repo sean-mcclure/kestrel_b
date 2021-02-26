@@ -35,7 +35,6 @@ function DirectMessages() {
       <>
       <div className="dm_close"><Close/></div>
       <div className="dm">
-        <h4>MESSAGES</h4>
         {dir_msgs}
       </div>
       </>

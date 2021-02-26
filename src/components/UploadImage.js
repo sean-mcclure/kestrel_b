@@ -1,4 +1,9 @@
+import "../css/upload_image_writing.css";
+
+
 const React = require('react')
+
+
 class Upload extends React.Component {
   constructor(props){
     super(props)

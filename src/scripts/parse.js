@@ -1,6 +1,7 @@
 import Parse from "parse";
 
 import {utility} from "../scripts/utility.js";
+import {events} from "../scripts/events.js";
 import {style} from "../scripts/style.js";
 
 Parse.initialize("2vJNSZlP54FvvotQc5f4RjvJ6o6YiOFATpAgcB4b", "HOBV5HQp2R4lR4icbblBlgeny3hpHPuewsXM9wJR");
@@ -50,7 +51,8 @@ export async function new_user(pass_email, pass_password) {
 export async function sign_in_user(pass_email, pass_password) {
     try {
         var user = await Parse.User.logIn(pass_email, pass_password);
-        console.log(user)
+        document.getElementsByClassName("sign_in")[0].innerText = "SIGN OUT"
+        events.close_div()
     } catch (error) {
         alert(error.message);
     }
@@ -74,3 +76,9 @@ export function check_if_user_signed_in() {
     }
     return (res)
 }
+
+setTimeout(function() {
+   if(check_if_user_signed_in().bool) {
+       document.getElementsByClassName("sign_in")[0].innerText = "SIGN OUT";
+   }
+}, 1000)

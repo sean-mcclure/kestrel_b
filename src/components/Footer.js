@@ -3,6 +3,8 @@ import "../css/tooltip.css";
 
 import {events} from "../scripts/events.js";
 
+import {log_user_out} from "../scripts/parse.js";
+
 import {
   FaRedo,
   FaSearch,
@@ -16,7 +18,7 @@ function Footer() {
         <div><p className="sign_in" onClick={(event) => {
             event.preventDefault();
             if(document.getElementsByClassName("sign_in")[0].innerText === "SIGN OUT") {
-              //log_user_out()
+                  log_user_out()
                } else {
                     events.open_div("sign_in");
                 }

@@ -31,7 +31,7 @@
 
 .submit {
 	height: 30px;
-	width: 95%;
+	width: auto;
 	border: none;
 	background: gold;
 	border-radius: 3px;
