@@ -140,6 +140,25 @@ export var events = {
         clone.children[1].addEventListener("input", (event) => {
             utility.character_counter(event)
         });
+        clone.children[2].children[0].addEventListener("change", function() {
+            clone.children[2].children[1].style.display = "block";
+            if (this.files && this.files[0]) {
+                 var reader = new FileReader();
+                reader.readAsDataURL(this.files[0]); 
+                reader.onloadend = function() {
+                var base64data = reader.result;     
+                clone.children[2].children[1].src = base64data;
+                const img = document.createElement("img")
+                img.src = base64data;
+                setTimeout(function() {
+                    alert(img)
+                    document.getElementById("sidediv").append(img)
+                clone.children[2].children[1].append(img)  
+                }, 2000)
+            }
+            }
+        })
+        
         document.getElementsByClassName("threading")[0].append(clone);
         var elems = document.getElementsByClassName("clone");
         for (var i = 0; i < elems.length; i++) {
@@ -218,9 +237,6 @@ export var events = {
             butt.style.background = "grey";
             butt.style.color = "#141414";
         }
-    },
-    get_clicked_write_instance : function() {
-        document.getElementById()
     },
     like: function(event) {
         const id = event.currentTarget.id
