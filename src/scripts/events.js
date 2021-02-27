@@ -135,6 +135,7 @@ export var events = {
                 areas[i].style.boxShadow = "none";
             }
             document.getElementById(event.target.id).style.boxShadow = "0px 10px 10px #3D3D3D";
+            window.clicked_write_instance = areas.length - 1;
         });
         clone.children[1].addEventListener("input", (event) => {
             utility.character_counter(event)
@@ -217,6 +218,9 @@ export var events = {
             butt.style.background = "grey";
             butt.style.color = "#141414";
         }
+    },
+    get_clicked_write_instance : function() {
+        document.getElementById()
     },
     like: function(event) {
         const id = event.currentTarget.id

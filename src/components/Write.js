@@ -6,6 +6,8 @@ import Counter from "../components/Counter";
 import { utility } from "../scripts/utility";
 import { events } from "../scripts/events";
 
+import UploadImageWriting from "./UploadImageWriting";
+
 function Write() {
     return (
         <div className="write_wrapper">
@@ -25,7 +27,9 @@ function Write() {
                                 areas[i].style.boxShadow = "none";
                             }
                             document.getElementById(event.target.id).style.boxShadow = "0px 10px 10px #3D3D3D";
+                            window.clicked_write_instance = areas.length - 1;
                     }}></textarea>
+                    <UploadImageWriting/>
                 </div>
                 <div className="loader"></div>
             </div>

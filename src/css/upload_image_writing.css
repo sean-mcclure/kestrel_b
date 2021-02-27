@@ -1,0 +1,18 @@
+/*
+.uploaded_img_writing {
+    width: 350px;
+    height: 195px;
+}
+*/
+
+.upload_img_wrapper {
+    display: none;
+}
+
+.input_hide_writing {
+    display: none;
+}
+
+.uploaded_img_writing {
+    width: 95%;
+}

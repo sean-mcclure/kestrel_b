@@ -1,3 +1,5 @@
+import "../css/upload_image_writing.css";
+
 const React = require('react');
 
 class UploadImageWriting extends React.Component {
@@ -20,6 +22,7 @@ class UploadImageWriting extends React.Component {
     reader.onload = function () {
         console.log(reader.result); //base64encoded string
         window.recent_img_upload_url = reader.result;
+        document.getElementsByClassName("upload_img_wrapper")[window.clicked_write_instance].style.display = "block";
     };
 
     reader.onerror = function (error) {
@@ -29,9 +32,9 @@ class UploadImageWriting extends React.Component {
 }
   render() {
     return (
-      <div>
-        <input type="file" onChange={this.handleChange} className="input_hide"/>
-        <img src={this.state.file} alt="" id="uploaded_img_writing" className="uploaded_img_writing"/>
+      <div className="upload_img_wrapper">
+        <input type="file" onChange={this.handleChange} className="input_hide_writing"/>
+        <img src={this.state.file} alt="" className="uploaded_img_writing"/>
       </div>
     );
   }

@@ -13,7 +13,7 @@ function WriteIcons() {
         <div className="write_icons_wrapper">
             <div className="write_icons_item">
                  <FaCameraRetro className="write_icons" size="1.7em" color="gold" onClick={(event) => {
-                        document.getElementsByClassName("input_hide")[0].click();
+                        document.getElementsByClassName("input_hide_writing")[window.clicked_write_instance].click();
                      }}/>
             </div>
             <div className="write_icons_item">

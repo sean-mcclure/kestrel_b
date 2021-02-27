@@ -30,7 +30,7 @@ class Upload extends React.Component {
     return (
       <div>
         <input type="file" onChange={this.handleChange} className="input_hide"/>
-        <img src={this.state.file} alt="" id="avatar_pic" className="avatar_pic"/>
+        <img src={this.state.file} alt="" className="avatar_pic"/>
       </div>
     );
   }

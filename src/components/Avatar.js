@@ -25,7 +25,7 @@ export function Avatar() {
          </div>
          <FaCamera className="camera_icon" onClick={(event) => {
             document.getElementsByClassName("input_hide")[0].click()
-            document.getElementById("avatar_pic").style.backgroundImage = "";
+            document.getElementsByClassName("avatar_pic")[0].style.backgroundImage = "";
         }}></FaCamera>
          <h5 className="upload_title_sub">Upload Photo<br></br>(crop to square for best results)</h5>
 
