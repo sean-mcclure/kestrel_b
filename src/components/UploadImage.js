@@ -1,6 +1,5 @@
 const React = require('react')
 
-
 class Upload extends React.Component {
   constructor(props){
     super(props)
@@ -20,8 +19,6 @@ class Upload extends React.Component {
 
     reader.onload = function () {
         console.log(reader.result); //base64encoded string
-        document.getElementById("avatar_pic").style.borderRadius = "50%"
-        document.getElementById("avatar_pic").style.border = "2px solid #141414"
     };
 
     reader.onerror = function (error) {

@@ -18,22 +18,10 @@ import {
 export function post() {
 
     if(document.getElementById("write_textarea").value !== "" || document.getElementsByClassName("write_textarea")[1].value !== "" || document.getElementsByClassName("poll_input_1")[0].value !== "") {
-     
-    if(typeof(document.getElementsByClassName("clone")[0]) !== "undefined") {
-        // grab the image URL
-        window.recent_img_upload_url = document.getElementsByClassName("msg_wrapper clone")[0].children[3].children[0].src;
-
-        // destroy clone after use 
-        setTimeout(function() {
-            document.getElementsByClassName("msg_wrapper clone")[0].remove();
-        }, 2000)
-    }
-    
+         
     events.close_div();
 
     const use_msg_id = "msg_wrapper_" + utility.makeid();
-
-   // alert(use_msg_id)
 
     setTimeout(function() {
         document.getElementsByClassName("col")[0].scrollTo({top: 0, left: 0, behavior: 'smooth' });
@@ -51,9 +39,6 @@ export function post() {
     if(window.polling) {
 
         var poll_input_1 = document.getElementsByClassName("poll_input_1")[0].value; 
-        //var poll_input_2 = document.getElementsByClassName("poll_input_2")[0].value; 
-        //var poll_input_3 = document.getElementsByClassName("poll_input_3")[0].value; 
-        //var poll_input_4 = document.getElementsByClassName("poll_input_4")[0].value;
         
         var fin = [];
 

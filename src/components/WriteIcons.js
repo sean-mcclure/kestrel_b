@@ -12,7 +12,9 @@ function WriteIcons() {
     return(
         <div className="write_icons_wrapper">
             <div className="write_icons_item">
-                 <FaCameraRetro className="write_icons" size="1.7em" color="gold"/>
+                 <FaCameraRetro className="write_icons" size="1.7em" color="gold" onClick={(event) => {
+                        document.getElementsByClassName("input_hide")[0].click();
+                     }}/>
             </div>
             <div className="write_icons_item">
                 <FaPoll className="write_icons" size="1.7em" color="gold"/>
