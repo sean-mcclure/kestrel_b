@@ -266,6 +266,11 @@ export var events = {
                 }
             }
         } else {
+            document.getElementById("hold_inputs").classList.remove("rubberBand");
+            setTimeout(function() {
+                document.getElementById("hold_inputs").classList.add("rubberBand");
+            }, 200)
+            
             alert(options.fail_message_2)
         }
         if (window.sign_in_up_choice === "sign_up") {
