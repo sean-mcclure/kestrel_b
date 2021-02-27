@@ -23,6 +23,7 @@ class UploadImageWriting extends React.Component {
         console.log(reader.result); //base64encoded string
         window.recent_img_upload_url = reader.result;
         document.getElementsByClassName("upload_img_wrapper")[window.clicked_write_instance].style.display = "block";
+    document.getElementsByClassName("uploaded_img_writing")[window.clicked_write_instance].src = window.recent_img_upload_url;
     };
 
     reader.onerror = function (error) {
