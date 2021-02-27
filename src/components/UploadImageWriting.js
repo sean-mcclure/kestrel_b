@@ -1,4 +1,4 @@
-import "../css/upload_image_writing.css";
+import "../css/avatar.css";
 
 const React = require('react');
 

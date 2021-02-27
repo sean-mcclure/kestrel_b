@@ -1,6 +1,3 @@
-import "../css/upload_image_writing.css";
-
-
 const React = require('react')
 
 

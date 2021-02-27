@@ -1,19 +1,22 @@
-import {utility} from "./utility.js";
-import {data} from "../data/data.js";
-
+import {
+    utility
+} from "./utility.js";
+import {
+    data
+} from "../data/data.js";
 import "../css/animations.css"
 import "../css/write.css";
-
 import Parse from "parse";
-
 import Messages from "../components/Messages";
-
-import {setMessages} from "../components/Messages";
+import {
+    setMessages
+} from "../components/Messages";
 
 var eye_cnt = 0;
-
 var likes = {}
 var clone_cnt = 0;
+var follow_block_cnt = 0;
+
 export var events = {
     get_current_user: function() {
         return (Parse.User.current())
@@ -40,22 +43,22 @@ export var events = {
         const sidediv = document.getElementById("sidediv");
         sidediv.classList.remove("sidediv_open");
         sidediv.classList.add("sidediv_close");
-        if(utility.is_mobile()) {
+        if (utility.is_mobile()) {
             document.getElementsByClassName("write_icons_wrapper")[0].style.visibility = "hidden";
         }
     },
-    clear_other_side_divs : function(pass_id) {
+    clear_other_side_divs: function(pass_id) {
         var ids = ["write", "avatar", "direct_messages", "search", "sign_in", "repost", "comment", "poll_show", "img_and_video"]
         ids.forEach(function(id) {
-            if(id !== pass_id) {
+            if (id !== pass_id) {
                 document.getElementById(id).style.display = "none";
             }
         })
     },
-    set_side_div_title : function(id) {
+    set_side_div_title: function(id) {
         var titles = {
-            write : "WHAT'S HAPPENING?",
-            avatar: "SIGN IN",
+            write: "WHAT'S HAPPENING?",
+            avatar: "PROFILE",
             direct_messages: "DIRECT MESSAGES",
             search: "SEARCH",
             sign_in: "SIGN IN",
@@ -66,9 +69,9 @@ export var events = {
         }
         document.getElementsByClassName("write_title")[0].innerHTML = titles[id];
     },
-    set_side_div_background : function(id) {
+    set_side_div_background: function(id) {
         var colors = {
-            write : "#d1ccc0",
+            write: "#d1ccc0",
             avatar: "#d1ccc0",
             direct_messages: "#d1ccc0",
             search: "#d1ccc0",
@@ -116,82 +119,72 @@ export var events = {
         //JSON.stringify(data)
     },
     make_thread: function() {
-
         clone_cnt++;
-
         var elem = document.getElementsByClassName("write_item")[1].children[0];
         var clone = elem.cloneNode(true);
         clone.classList.add("clone");
-
         clone.children[0].innerText = "280";
         clone.children[0].style.width = "100%";
         clone.children[1].style.boxShadow = "none";
         clone.children[1].value = "";
-
         var clone_id = "write_textarea_" + clone_cnt;
         clone.children[1].id = clone_id;
-
         clone.children[1].addEventListener("click", (event) => {
             var areas = document.getElementsByClassName("write_textarea");
-            for(var i=0; i<areas.length; i++) {
+            for (var i = 0; i < areas.length; i++) {
                 areas[i].style.boxShadow = "none";
             }
             document.getElementById(event.target.id).style.boxShadow = "0px 10px 10px #3D3D3D";
         });
-
         clone.children[1].addEventListener("input", (event) => {
             utility.character_counter(event)
         });
-
         document.getElementsByClassName("threading")[0].append(clone);
-
         var elems = document.getElementsByClassName("clone");
-        for(var i = 0; i < elems.length; i++) {
+        for (var i = 0; i < elems.length; i++) {
             elems[i].children[1].placeholder = (i + 2).toString() + "/" + (elems.length + 1).toString();
             document.getElementById("write_textarea").placeholder = "1/" + (elems.length + 1).toString();
-            if(i === elems.length-1) {
+            if (i === elems.length - 1) {
                 elems[i].children[1].style.marginBottom = "100px";
             } else {
                 elems[i].children[1].style.marginBottom = "0px";
-            }  
+            }
         }
-
         var total_height = document.getElementsByClassName("write_textarea").length * 200;
         utility.scroll_to_bottom("write_wrapper", total_height);
-
     },
-    clear_close : function() {
+    clear_close: function() {
         var elems = document.getElementsByClassName("hold_close");
-        for(var i=0; i<elems.length; i++) {
-            if(i !== 0) {
+        for (var i = 0; i < elems.length; i++) {
+            if (i !== 0) {
                 elems[i].remove();
             }
         }
     },
-    clear_threads : function() {
+    clear_threads: function() {
         var elems = document.getElementsByClassName("clone");
-        while(elems.length > 0) {
+        while (elems.length > 0) {
             elems[0].remove();
         }
         document.getElementById("write_textarea").placeholder = "1/n";
         document.getElementsByClassName("show_count")[0].innerText = "280";
         document.getElementsByClassName("show_count")[0].style.width = "100%";
     },
-    sign_in_toggle : function(event) {
+    sign_in_toggle: function(event) {
         const id = event.target.id;
         const sign_in = document.getElementById("sign_in_button");
         const sign_up = document.getElementById("sign_up_button");
         const sign_in_pass = document.getElementsByClassName("sign_in_pass")[0];
         const forogt_pass = document.getElementsByClassName("forgot_pass")[0];
         const clone = document.getElementById("hold_inputs_clone");
-        if(id === "sign_in_button") {
+        if (id === "sign_in_button") {
             sign_in.style.background = "gold";
             sign_in.style.color = "#141414";
             sign_up.style.color = "whitesmoke";
             sign_up.style.background = "grey";
             sign_in.style.pointerEvents = "none";
             sign_up.style.pointerEvents = "auto";
-            if(typeof(clone) !== "undefined") {
+            if (typeof(clone) !== "undefined") {
                 clone.remove();
             }
             document.getElementsByClassName("forgot_pass")[0].style.display = "block";
@@ -210,7 +203,19 @@ export var events = {
             clone.value = "";
             document.getElementById("hold_inputs").append(clone);
             sign_in_pass.placeholder = "choose password...";
-
+        }
+    },
+    follow_block: function(event) {
+        follow_block_cnt++;
+        const id = event.target.id;
+        const butt = document.getElementById(event.target.id);
+        const current_color = document.getElementById(event.target.id).style.background;
+        if(current_color !== "rgb(243, 179, 43)") {
+            butt.style.background = "#F3B32B";
+            butt.style.color = "#141414";
+        } else {
+            butt.style.background = "grey";
+            butt.style.color = "#141414";
         }
     },
     like: function(event) {
@@ -253,8 +258,7 @@ export var events = {
     validate: function(options) {
         utility.spinner();
         if (document.getElementsByClassName(options.input_class)[0].value !== "" && document.getElementsByClassName(options.input_class)[1].value !== "") {
-            if (document.getElementsByClassName(options.input_class)[0].value.indexOf("@") === -1) {
-            } else {
+            if (document.getElementsByClassName(options.input_class)[0].value.indexOf("@") === -1) {} else {
                 if (window.sign_in_up_choice === "sign_up") { // new user (registering)
                     options.new_user_function();
                 } else { // existing user (signing in)
@@ -270,9 +274,9 @@ export var events = {
             document.getElementsByClassName("loader")[0].style.marginTop = "80px";
         }
     },
-    toggle_password_eye : function() {
+    toggle_password_eye: function() {
         eye_cnt++;
-        if(eye_cnt % 2 === 0) {
+        if (eye_cnt % 2 === 0) {
             document.getElementsByClassName("sign_in_pass")[0].type = "password";
         } else {
             document.getElementsByClassName("sign_in_pass")[0].type = "text";

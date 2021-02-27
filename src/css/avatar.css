@@ -1,0 +1,70 @@
+#avatar_pic {
+    margin-top: 20px;
+}
+
+.input_hide {
+    display: none;
+}
+
+#avatar_pic {
+    width: 100px !important
+}
+
+#follower_count {
+    color: #141414;
+}
+
+.camera_icon {
+    color: darkslategrey;
+    font-size: 30px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+#follow_block_1, #follow_block_2 {
+    height: 30px;
+	width: auto;
+	border: none;
+	background: grey;
+	border-radius: 3px;
+	margin: 4px;
+	margin-top: 0px;
+	font-size: 16px;
+    outline: 0;
+    border: 1px solid #141414;
+	cursor: pointer;
+}
+
+.upload_title_sub {
+    color: #141414;
+    margin-top: -10px;
+    font-size: 14px;
+}
+
+.bio_main {
+    width: 90% !important;
+    height: 100px !important;
+    background: #3D3D3D !important;
+    border-radius: 4px !important;
+    outline: 0 !important;
+    padding: 10px !important;
+    font-size: 18px !important;
+    color: whitesmoke !important;
+    font-family: Oswald !important;  
+    resize: none !important;
+}
+
+.save_profile {
+    height: 40px;
+	width: auto;
+	border: none;
+	background: gold;
+	border-radius: 3px;
+	margin: 10px;
+    margin-top: 10px;
+    font-weight: bold;
+	font-size: 16px;
+	outline: 0;
+    cursor: pointer;
+    border: 1px solid #141414;
+}
