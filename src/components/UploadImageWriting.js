@@ -35,7 +35,7 @@ class UploadImageWriting extends React.Component {
     return (
       <div className="upload_img_wrapper">
         <input type="file" className="input_hide_writing"/>
-        <img alt="" className="uploaded_img_writing"/>
+        <img alt="img" className="uploaded_img_writing"></img>
       </div>
     );
   }

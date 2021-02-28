@@ -140,24 +140,19 @@ export var events = {
         clone.children[1].addEventListener("input", (event) => {
             utility.character_counter(event)
         });
-        clone.children[2].children[0].addEventListener("change", function() {
-            clone.children[2].children[1].style.display = "block";
-            if (this.files && this.files[0]) {
-                 var reader = new FileReader();
-                reader.readAsDataURL(this.files[0]); 
-                reader.onloadend = function() {
-                var base64data = reader.result;     
-                clone.children[2].children[1].src = base64data;
-                const img = document.createElement("img")
-                img.src = base64data;
-                setTimeout(function() {
-                    alert(img)
-                    document.getElementById("sidediv").append(img)
-                clone.children[2].children[1].append(img)  
-                }, 2000)
+        
+        clone.children[2].children[0].addEventListener("change", function(event) {
+
+            var reader = new FileReader();
+            reader.onload = function(){
+                const img = document.getElementsByClassName("uploaded_img_writing")[window.clicked_write_instance];
+                img.style.visibility = "visible";
+                var output = img;
+                output.src = reader.result;
             }
-            }
+            reader.readAsDataURL(event.target.files[0])
         })
+        
         
         document.getElementsByClassName("threading")[0].append(clone);
         var elems = document.getElementsByClassName("clone");

@@ -6,7 +6,7 @@
 */
 
 .upload_img_wrapper {
-    display: none;
+    visibility: hidden;
 }
 
 .input_hide_writing {
