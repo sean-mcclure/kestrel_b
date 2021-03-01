@@ -123,6 +123,7 @@ export var events = {
         var elem = document.getElementsByClassName("write_item")[1].children[0];
         var clone = elem.cloneNode(true);
         clone.classList.add("clone");
+        clone.style.marginTop = "-10px";
         clone.children[0].innerText = "280";
         clone.children[0].style.width = "100%";
         clone.children[1].style.boxShadow = "none";
@@ -147,12 +148,14 @@ export var events = {
             reader.onload = function(){
                 const img = document.getElementsByClassName("uploaded_img_writing")[events.get_clicked_textarea_instance()];
                 img.style.visibility = "visible";
+                img.style.height = "auto";
                 img.src = reader.result;
             }
             reader.readAsDataURL(event.target.files[0])
         })
         
         document.getElementsByClassName("threading")[0].append(clone);
+
         var elems = document.getElementsByClassName("clone");
         for (var i = 0; i < elems.length; i++) {
             elems[i].children[1].placeholder = (i + 2).toString() + "/" + (elems.length + 1).toString();

@@ -72,11 +72,6 @@ html {
     cursor: pointer;
 }
 
-.clone {
-    margin-top: 60px;
-    -webkit-appearance: none !important;
-}
-
 @media only screen and (max-width: 600px) {
     .inside_wrapper_item:nth-child(2), .inside_wrapper_item:nth-child(3) {
         display: none;

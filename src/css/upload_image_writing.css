@@ -15,5 +15,6 @@
 
 .uploaded_img_writing {
     width: 95%;
-    height: auto !important;
+    height: 0px;
 }
+

@@ -32,7 +32,6 @@ export var utility = {
     scroll_to_bottom: function(target_class, total_height) {
         document.getElementsByClassName(target_class)[0].scrollTo({
             top: total_height,
-            left: 0,
             behavior: 'smooth'
         });
     },

@@ -5,9 +5,9 @@ import {events} from "../scripts/events.js";
 const upload_image = function(event) {
     var reader = new FileReader();
     reader.onload = function(){
-        alert(events.get_clicked_textarea_instance())
         const img = document.getElementsByClassName("uploaded_img_writing")[events.get_clicked_textarea_instance()];
         img.style.visibility = "visible";
+        img.style.height = "auto";
         img.src = reader.result;
     }
     reader.readAsDataURL(event.target.files[0])
