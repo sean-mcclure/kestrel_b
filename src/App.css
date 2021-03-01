@@ -74,6 +74,7 @@ html {
 
 .clone {
     margin-top: 60px;
+    -webkit-appearance: none !important;
 }
 
 @media only screen and (max-width: 600px) {

@@ -126,6 +126,7 @@ export var events = {
         clone.children[0].innerText = "280";
         clone.children[0].style.width = "100%";
         clone.children[1].style.boxShadow = "none";
+        clone.children[1].style.webkitBoxShadow = "none";
         clone.children[1].value = "";
         var clone_id = "write_textarea_" + clone_cnt;
         clone.children[1].id = clone_id;
@@ -135,6 +136,7 @@ export var events = {
                 areas[i].style.boxShadow = "none";
             }
             document.getElementById(event.target.id).style.boxShadow = "0px 10px 10px #3D3D3D";
+            document.getElementById(event.target.id).style.webkitBoxShadow = "0px 10px 10px #3D3D3D";
         });
         clone.children[1].addEventListener("input", (event) => {
             utility.character_counter(event)
@@ -143,7 +145,6 @@ export var events = {
         clone.children[2].children[0].addEventListener("change", function(event) {
             var reader = new FileReader();
             reader.onload = function(){
-                alert(events.get_clicked_textarea_instance())
                 const img = document.getElementsByClassName("uploaded_img_writing")[events.get_clicked_textarea_instance()];
                 img.style.visibility = "visible";
                 img.src = reader.result;
