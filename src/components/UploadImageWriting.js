@@ -1,43 +1,24 @@
 import "../css/upload_image_writing.css";
 
-const React = require('react');
+import {events} from "../scripts/events.js";
 
-class UploadImageWriting extends React.Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      file: null
-    }
-    this.handleChange = this.handleChange.bind(this)
-  }
-  handleChange(event) {
-
-    this.setState({
-      file: URL.createObjectURL(event.target.files[0])
-    })
-
+const upload_image = function(event) {
     var reader = new FileReader();
-    reader.readAsDataURL(event.target.files[0]);
-
-    reader.onload = function () {
-        console.log(reader.result); //base64encoded string
-        window.recent_img_upload_url = reader.result;
-        document.getElementsByClassName("upload_img_wrapper")[window.clicked_write_instance].style.display = "block";
-    document.getElementsByClassName("uploaded_img_writing")[window.clicked_write_instance].src = window.recent_img_upload_url;
-    };
-
-    reader.onerror = function (error) {
-        console.log('Error: ', error);
-    };
-
+    reader.onload = function(){
+        alert(events.get_clicked_textarea_instance())
+        const img = document.getElementsByClassName("uploaded_img_writing")[events.get_clicked_textarea_instance()];
+        img.style.visibility = "visible";
+        img.src = reader.result;
+    }
+    reader.readAsDataURL(event.target.files[0])
 }
-  render() {
+
+function UploadImageWriting() {
     return (
       <div className="upload_img_wrapper">
-        <input type="file" className="input_hide_writing"/>
+        <input type="file" className="input_hide_writing" onChange={upload_image}/>
         <img alt="img" className="uploaded_img_writing"></img>
       </div>
     );
-  }
 }
 export default UploadImageWriting;

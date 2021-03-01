@@ -135,24 +135,21 @@ export var events = {
                 areas[i].style.boxShadow = "none";
             }
             document.getElementById(event.target.id).style.boxShadow = "0px 10px 10px #3D3D3D";
-            window.clicked_write_instance = areas.length - 1;
         });
         clone.children[1].addEventListener("input", (event) => {
             utility.character_counter(event)
         });
         
         clone.children[2].children[0].addEventListener("change", function(event) {
-
             var reader = new FileReader();
             reader.onload = function(){
-                const img = document.getElementsByClassName("uploaded_img_writing")[window.clicked_write_instance];
+                alert(events.get_clicked_textarea_instance())
+                const img = document.getElementsByClassName("uploaded_img_writing")[events.get_clicked_textarea_instance()];
                 img.style.visibility = "visible";
-                var output = img;
-                output.src = reader.result;
+                img.src = reader.result;
             }
             reader.readAsDataURL(event.target.files[0])
         })
-        
         
         document.getElementsByClassName("threading")[0].append(clone);
         var elems = document.getElementsByClassName("clone");
@@ -167,6 +164,16 @@ export var events = {
         }
         var total_height = document.getElementsByClassName("write_textarea").length * 200;
         utility.scroll_to_bottom("write_wrapper", total_height);
+    },
+    get_clicked_textarea_instance : function() {
+        var res;
+        const all_texts = document.getElementsByClassName("write_textarea");
+        for(var i=0;i<all_texts.length;i++) {
+            if(all_texts[i].style.boxShadow !== "none") {
+                res = i;
+            }
+        }
+        return(res)
     },
     clear_close: function() {
         var elems = document.getElementsByClassName("hold_close");
