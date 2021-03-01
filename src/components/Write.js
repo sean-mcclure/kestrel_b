@@ -22,13 +22,7 @@ function Write() {
                             utility.character_counter(event);
                         }}
                         onClick={(event) => {
-                            var areas = document.getElementsByClassName("write_textarea");
-                            for(var i=0; i<areas.length; i++) {
-                                areas[i].style.boxShadow = "none";
-                                areas[i].style.webkitBoxShadow = "none";
-                            }
-                            document.getElementById(event.target.id).style.boxShadow = "0px 10px 10px #3D3D3D";
-                            document.getElementById(event.target.id).style.webkitBoxShadow = "0px 10px 10px #3D3D3D";
+                             events.add_border_on_click(event)    
                     }}></textarea>
                     <UploadImageWriting/>
                 </div>

@@ -1,16 +1,12 @@
-import {
-    utility
-} from "./utility.js";
-import {
-    data
-} from "../data/data.js";
+import {utility} from "./utility.js";
+import {data} from "../data/data.js";
+
 import "../css/animations.css"
 import "../css/write.css";
+
 import Parse from "parse";
-import Messages from "../components/Messages";
-import {
-    setMessages
-} from "../components/Messages";
+
+import Messages, {setMessages} from "../components/Messages";
 
 var eye_cnt = 0;
 var likes = {}
@@ -128,24 +124,19 @@ export var events = {
         clone.children[0].style.width = "100%";
         clone.children[1].style.boxShadow = "none";
         clone.children[1].style.webkitBoxShadow = "none";
+        clone.children[1].style.border = "none";
         clone.children[1].value = "";
         var clone_id = "write_textarea_" + clone_cnt;
         clone.children[1].id = clone_id;
         clone.children[1].addEventListener("click", (event) => {
-            var areas = document.getElementsByClassName("write_textarea");
-            for (var i = 0; i < areas.length; i++) {
-                areas[i].style.boxShadow = "none";
-            }
-            document.getElementById(event.target.id).style.boxShadow = "0px 10px 10px #3D3D3D";
-            document.getElementById(event.target.id).style.webkitBoxShadow = "0px 10px 10px #3D3D3D";
+            events.add_border_on_click(event)
         });
         clone.children[1].addEventListener("input", (event) => {
             utility.character_counter(event)
         });
-        
         clone.children[2].children[0].addEventListener("change", function(event) {
             var reader = new FileReader();
-            reader.onload = function(){
+            reader.onload = function() {
                 const img = document.getElementsByClassName("uploaded_img_writing")[events.get_clicked_textarea_instance()];
                 img.style.visibility = "visible";
                 img.style.height = "auto";
@@ -153,9 +144,7 @@ export var events = {
             }
             reader.readAsDataURL(event.target.files[0])
         })
-        
         document.getElementsByClassName("threading")[0].append(clone);
-
         var elems = document.getElementsByClassName("clone");
         for (var i = 0; i < elems.length; i++) {
             elems[i].children[1].placeholder = (i + 2).toString() + "/" + (elems.length + 1).toString();
@@ -169,15 +158,27 @@ export var events = {
         var total_height = document.getElementsByClassName("write_textarea").length * 200;
         utility.scroll_to_bottom("write_wrapper", total_height);
     },
-    get_clicked_textarea_instance : function() {
+    add_border_on_click: function(event) {
+        var areas = document.getElementsByClassName("write_textarea");
+        for (var i = 0; i < areas.length; i++) {
+            areas[i].style.boxShadow = "none";
+            areas[i].style.webkitBoxShadow = "none";
+            areas[i].style.border = "none";
+        }
+        const this_area = document.getElementById(event.target.id);
+        this_area.style.boxShadow = "0px 10px 10px #3D3D3D";
+        this_area.style.webkitBoxShadow = "0px 10px 10px #3D3D3D";
+        this_area.style.border = "3px solid gold";
+    },
+    get_clicked_textarea_instance: function() {
         var res;
         const all_texts = document.getElementsByClassName("write_textarea");
-        for(var i=0;i<all_texts.length;i++) {
-            if(all_texts[i].style.boxShadow !== "none") {
+        for (var i = 0; i < all_texts.length; i++) {
+            if (all_texts[i].style.boxShadow !== "none") {
                 res = i;
             }
         }
-        return(res)
+        return (res)
     },
     clear_close: function() {
         var elems = document.getElementsByClassName("hold_close");
@@ -236,7 +237,7 @@ export var events = {
         const id = event.target.id;
         const butt = document.getElementById(event.target.id);
         const current_color = document.getElementById(event.target.id).style.background;
-        if(current_color !== "rgb(243, 179, 43)") {
+        if (current_color !== "rgb(243, 179, 43)") {
             butt.style.background = "#F3B32B";
             butt.style.color = "#141414";
         } else {
@@ -296,7 +297,6 @@ export var events = {
             setTimeout(function() {
                 document.getElementById("hold_inputs").classList.add("rubberBand");
             }, 200)
-            
             alert(options.fail_message_2)
         }
         if (window.sign_in_up_choice === "sign_up") {

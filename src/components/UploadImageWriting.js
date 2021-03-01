@@ -13,11 +13,15 @@ const upload_image = function(event) {
     reader.readAsDataURL(event.target.files[0])
 }
 
+const img_styles = {
+    "border-radius" : "20px"
+}
+
 function UploadImageWriting() {
     return (
       <div className="upload_img_wrapper">
         <input type="file" className="input_hide_writing" onChange={upload_image}/>
-        <img alt="img" className="uploaded_img_writing"></img>
+        <img alt="img" className="uploaded_img_writing" style={img_styles}></img>
       </div>
     );
 }
