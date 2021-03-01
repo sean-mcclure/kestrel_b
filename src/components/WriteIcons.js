@@ -3,7 +3,8 @@ import "../css/write_icons.css";
 import {
     FaCameraRetro,
     FaPoll,
-    FaPlus
+    FaPlus,
+    FaPaperPlane
 } from "react-icons/fa";
 
 import { events } from "../scripts/events";
@@ -25,11 +26,11 @@ function WriteIcons() {
                     }}/>
             </div>
             <div className="write_icons_item">
-                <button className="post_message" onClick={(event) => {events.validate_input.write_textarea({
+                <FaPaperPlane  className="write_icons plus" size="1.5em" color="gold" className="write_icons post_message" onClick={(event) => {events.validate_input.write_textarea({
                     success_function : function() {
                         events.post()
                     }
-                })}}>POST</button>
+                })}}></FaPaperPlane>
             </div>
         </div>
     )
