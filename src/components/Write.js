@@ -8,6 +8,8 @@ import { events } from "../scripts/events";
 
 import UploadImageWriting from "./UploadImageWriting";
 
+import MathJax from "./MathJax";
+
 function Write() {
     return (
         <div className="write_wrapper">
@@ -24,8 +26,15 @@ function Write() {
                         onClick={(event) => {
                              events.add_border_on_click(event);
                              events.disable_delete();
-                    }}></textarea>
+                        }}
+                        onPaste={(event) => {
+                            setTimeout(function() {
+                               window.current_formula = document.getElementById(event.target.id).value;
+                            }, 100)
+                        }}
+                    ></textarea>
                     <UploadImageWriting/>
+                    <MathJax/>
                 </div>
                 <div className="loader"></div>
             </div>
