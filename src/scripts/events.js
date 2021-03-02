@@ -342,13 +342,6 @@ export var events = {
         }, 200)
     },
     click_back_poll: function(e) {
-        if (typeof(poll_wrapper) !== "undefined") {
-            document.getElementsByClassName("write_options_item")[0].style.display = "block";
-            document.getElementsByClassName("poll_wrapper")[0].style.display = "none";
-            document.getElementsByClassName("write_options_item")[0].style.display = "block";
-            document.getElementsByClassName("write_options_item")[1].style.display = "block";
-            document.getElementsByClassName("write_options_item")[2].style.display = "block";
-            document.getElementsByClassName("write_options_item")[3].style.display = "block";
-        }
+        events.open_div("write");
     }
 }

@@ -3,6 +3,7 @@ import "../css/poll.css";
 import {post} from "./Post";
 
 import {utility} from "../scripts/utility.js";
+import {events} from "../scripts/events.js";
 
 import {
   FaArrowCircleLeft
@@ -22,8 +23,7 @@ function Poll() {
                     post();
                 }}>POST POLL</button></div>
                 <div onClick={(event) => {
-                     event.preventDefault();
-                     utility.open_div("write");
+                     events.click_back_poll()
                 }}><FaArrowCircleLeft size="2em" className="back_to_write"/>
                 </div>
             </div>
