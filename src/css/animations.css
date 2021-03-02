@@ -74,3 +74,17 @@
     transform: scale3d(1, 1, 1);
   }
 }
+
+.slide_right{
+    transform: translate(350px,0);
+    -webkit-transform: translate(350px,0);
+    -o-transform: translate(350px,0);
+    -moz-transform: translate(350px,0);
+    transition: 0.2s;
+}
+
+@keyframes run {
+    0% { left: 0;}
+    50%{ left : 100%;}
+    100%{ left: 0;}
+}

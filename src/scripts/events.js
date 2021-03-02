@@ -140,6 +140,8 @@ export var events = {
                 const img = document.getElementsByClassName("uploaded_img_writing")[events.get_clicked_textarea_instance()];
                 img.style.visibility = "visible";
                 img.style.height = "auto";
+                img.style.margin = "20px";
+                img.style.marginBottom = "30px";
                 img.src = reader.result;
             }
             reader.readAsDataURL(event.target.files[0])
@@ -312,6 +314,15 @@ export var events = {
         } else {
             document.getElementsByClassName("sign_in_pass")[0].type = "text";
         }
+    },
+    delete_thread : function() {
+        const instance = events.get_clicked_textarea_instance();
+        const elem = document.getElementsByClassName("clone")[instance - 1];
+        elem.classList.add("slide_right");
+        setTimeout(function() {  
+            elem.remove();
+            elem.classList.remove("slide_right");
+        }, 200)
     },
     click_back_poll: function(e) {
         if (typeof(poll_wrapper) !== "undefined") {

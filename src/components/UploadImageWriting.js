@@ -8,6 +8,8 @@ const upload_image = function(event) {
         const img = document.getElementsByClassName("uploaded_img_writing")[events.get_clicked_textarea_instance()];
         img.style.visibility = "visible";
         img.style.height = "auto";
+        img.style.margin = "20px";
+        img.style.marginBottom = "30px";
         img.src = reader.result;
     }
     reader.readAsDataURL(event.target.files[0])

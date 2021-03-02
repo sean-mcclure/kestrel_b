@@ -1,6 +1,7 @@
 import "../css/write_icons.css";
 
 import {
+    FaTrashAlt,
     FaCameraRetro,
     FaPoll,
     FaPlus,
@@ -13,20 +14,25 @@ function WriteIcons() {
     return(
         <div className="write_icons_wrapper">
             <div className="write_icons_item">
-                 <FaCameraRetro className="write_icons" size="1.7em" color="gold" onClick={(event) => {
+                <FaTrashAlt className="write_icons" size="1.5em" onClick={(event) => {
+                    events.delete_thread();
+                }}/>
+            </div>
+            <div className="write_icons_item">
+                 <FaCameraRetro className="write_icons" size="1.7em" onClick={(event) => {
                         document.getElementsByClassName("input_hide_writing")[events.get_clicked_textarea_instance()].click();
                      }}/>
             </div>
             <div className="write_icons_item">
-                <FaPoll className="write_icons" size="1.7em" color="gold"/>
+                <FaPoll className="write_icons" size="1.7em"/>
             </div>
             <div className="write_icons_item">
-                <FaPlus className="write_icons plus" size="1.5em" color="gold" onClick={(event) => {
+                <FaPlus className="write_icons plus" size="1.5em" onClick={(event) => {
                     events.make_thread()
                     }}/>
             </div>
             <div className="write_icons_item">
-                <FaPaperPlane  className="write_icons plus" size="1.5em" color="gold" className="write_icons post_message" onClick={(event) => {events.validate_input.write_textarea({
+                <FaPaperPlane  className="write_icons plus" size="1.5em" className="write_icons post_message" onClick={(event) => {events.validate_input.write_textarea({
                     success_function : function() {
                         events.post()
                     }
