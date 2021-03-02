@@ -32,7 +32,7 @@ function WriteIcons() {
                     }}/>
             </div>
             <div className="write_icons_item">
-                <FaPaperPlane  className="write_icons plus" size="1.5em" className="write_icons post_message" onClick={(event) => {events.validate_input.write_textarea({
+                <FaPaperPlane  className="write_icons" size="1.5em" className="write_icons post_message" onClick={(event) => {events.validate_input.write_textarea({
                     success_function : function() {
                         events.post()
                     }

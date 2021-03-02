@@ -29,7 +29,7 @@
 @media only screen and (max-width: 600px) {
     .write_icons_wrapper {
         width: 15% !important;
-        height: 48%;
+        height: 56%;
         background: rgba(0,0,0,0.7) !important;
         flex-direction: column !important;
         bottom: 0;
@@ -38,5 +38,8 @@
     }
     .write_icons {
         color: whitesmoke !important;
+    }
+    .write_icons_item:nth-child(5) > .write_icons {
+        color: #F3B32B !important;
     }
 }
