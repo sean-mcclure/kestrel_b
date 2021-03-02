@@ -129,7 +129,8 @@ export var events = {
         var clone_id = "write_textarea_" + clone_cnt;
         clone.children[1].id = clone_id;
         clone.children[1].addEventListener("click", (event) => {
-            events.add_border_on_click(event)
+            events.add_border_on_click(event);
+            events.enable_delete();
         });
         clone.children[1].addEventListener("input", (event) => {
             utility.character_counter(event)
@@ -147,6 +148,11 @@ export var events = {
             reader.readAsDataURL(event.target.files[0])
         })
         document.getElementsByClassName("threading")[0].append(clone);
+        events.renumber_placeholders();
+        var total_height = document.getElementsByClassName("write_textarea").length * 200;
+        utility.scroll_to_bottom("write_wrapper", total_height);
+    },
+    renumber_placeholders : function() {
         var elems = document.getElementsByClassName("clone");
         for (var i = 0; i < elems.length; i++) {
             elems[i].children[1].placeholder = (i + 2).toString() + "/" + (elems.length + 1).toString();
@@ -157,8 +163,16 @@ export var events = {
                 elems[i].children[1].style.marginBottom = "0px";
             }
         }
-        var total_height = document.getElementsByClassName("write_textarea").length * 200;
-        utility.scroll_to_bottom("write_wrapper", total_height);
+    },
+    enable_delete : function() {
+        const remove = document.getElementsByClassName("remove_clone")[0];
+        remove.style.pointerEvents = "auto";
+        remove.style.opacity = "1";
+    },
+    disable_delete : function() {
+        const remove = document.getElementsByClassName("remove_clone")[0];
+        remove.style.pointerEvents = "none";
+        remove.style.opacity = "0.5";
     },
     add_border_on_click: function(event) {
         var areas = document.getElementsByClassName("write_textarea");
@@ -322,6 +336,8 @@ export var events = {
         setTimeout(function() {  
             elem.remove();
             elem.classList.remove("slide_right");
+            events.renumber_placeholders();
+            events.disable_delete();
         }, 200)
     },
     click_back_poll: function(e) {

@@ -22,7 +22,8 @@ function Write() {
                             utility.character_counter(event);
                         }}
                         onClick={(event) => {
-                             events.add_border_on_click(event)    
+                             events.add_border_on_click(event);
+                             events.disable_delete();
                     }}></textarea>
                     <UploadImageWriting/>
                 </div>

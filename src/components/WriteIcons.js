@@ -14,7 +14,7 @@ function WriteIcons() {
     return(
         <div className="write_icons_wrapper">
             <div className="write_icons_item">
-                <FaTrashAlt className="write_icons" size="1.5em" onClick={(event) => {
+                <FaTrashAlt className="write_icons remove_clone" size="1.5em" onClick={(event) => {
                     events.delete_thread();
                 }}/>
             </div>

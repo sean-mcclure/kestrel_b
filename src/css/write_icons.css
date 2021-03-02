@@ -21,6 +21,11 @@
     height: 60px;
 }
 
+.remove_clone {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
 @media only screen and (max-width: 600px) {
     .write_icons_wrapper {
         width: 15% !important;
