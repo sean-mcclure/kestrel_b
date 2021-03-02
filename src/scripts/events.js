@@ -121,11 +121,12 @@ export var events = {
         clone.classList.add("clone");
         clone.style.marginTop = "-10px";
         clone.children[0].innerText = "280";
-        clone.children[0].style.width = "100%";
+        clone.children[0].style.width = "95.5%";
         clone.children[1].style.boxShadow = "none";
         clone.children[1].style.webkitBoxShadow = "none";
         clone.children[1].style.border = "none";
         clone.children[1].value = "";
+        clone.children[0].style.color = "#141414";
         var clone_id = "write_textarea_" + clone_cnt;
         clone.children[1].id = clone_id;
         clone.children[1].addEventListener("click", (event) => {
