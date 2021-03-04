@@ -25,7 +25,7 @@ function WriteIcons() {
             </div>
             <div className="write_icons_item">
                 <FaPoll className="write_icons" size="1.7em" onClick={(event) => {
-                  events.open_div("poll_show")  
+                  events.add_poll()
                 }}/>
             </div>
             <div className="write_icons_item">

@@ -127,6 +127,7 @@ export var events = {
         clone.children[1].style.border = "none";
         clone.children[1].value = "";
         clone.children[0].style.color = "#141414";
+        clone.children[3].style.display = "none"; // change back display for Poll clone
         var clone_id = "write_textarea_" + clone_cnt;
         clone.children[1].id = clone_id;
         clone.children[1].addEventListener("click", (event) => {
@@ -343,5 +344,9 @@ export var events = {
     },
     click_back_poll: function(e) {
         events.open_div("write");
+    },
+    add_poll : function() {
+        const inst = events.get_clicked_textarea_instance();
+        document.getElementsByClassName("poll_wrapper")[inst].style.display = "block";
     }
 }

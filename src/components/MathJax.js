@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { MathComponent } from 'mathjax-react';
 
 const math_styles = {
-    "color" : "black"
+    "color" : "black",
+    "display" : "none"
 }
 
 function MathJax(props) {

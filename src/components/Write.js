@@ -7,6 +7,7 @@ import { utility } from "../scripts/utility";
 import { events } from "../scripts/events";
 
 import UploadImageWriting from "./UploadImageWriting";
+import Poll from "./Poll";
 
 import MathJax from "./MathJax";
 
@@ -34,6 +35,7 @@ function Write() {
                         }}
                     ></textarea>
                     <UploadImageWriting/>
+                    <Poll/>
                     <MathJax/>
                 </div>
                 <div className="loader"></div>
