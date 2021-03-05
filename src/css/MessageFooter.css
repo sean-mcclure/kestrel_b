@@ -3,3 +3,10 @@
     flex-direction: row;
     justify-content: space-evenly;
 }
+
+.message_footer_icons {
+    color: #F3B32B !important;
+    margin-bottom: -6px !important;
+    cursor: pointer;
+    margin-right: 10px;
+}
