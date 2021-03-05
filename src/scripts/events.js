@@ -263,6 +263,12 @@ export var events = {
             butt.style.color = "#141414";
         }
     },
+    repost : function() {
+        var elem = document.getElementsByClassName("messages_wrapper")[0];
+        var clone = elem.cloneNode(true);
+        clone.classList.add("repost_clone");
+        document.getElementsByClassName("hold_repost")[0].append(clone);
+    },
     like: function(event) {
         const id = event.currentTarget.id
         const class_instance = utility.get_class_instance("like_icons", id)

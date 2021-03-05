@@ -7,6 +7,7 @@ import Search from "./Search";
 import SignIn from "./SignIn";
 import Poll from "./Poll";
 import Close from "./Close";
+import Repost from "./Repost";
 
 function SideDiv() {
     return(
@@ -28,7 +29,7 @@ function SideDiv() {
                 <SignIn/>
             </div>
             <div id="repost">
-             {/*<Write/>*/}
+                <Repost/>
             </div>
             <div id="comment">
                  {/*<Write/>*/}

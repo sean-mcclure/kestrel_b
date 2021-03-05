@@ -1,0 +1,8 @@
+.repost_wrapper {
+    height: 100vh;
+    overflow-y: scroll !important;
+}
+
+.repost_clone > .messages_item {
+    width: 92% !important;
+}

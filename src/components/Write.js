@@ -1,15 +1,11 @@
 import "../css/write.css";
 
-import WriteIcons from "../components/WriteIcons";
-
 import Counter from "../components/Counter";
-import { utility } from "../scripts/utility";
-import { events } from "../scripts/events";
-
+import Textarea from "../components/Textarea";
 import UploadImageWriting from "./UploadImageWriting";
 import Poll from "./Poll";
-
 import MathJax from "./MathJax";
+import WriteIcons from "../components/WriteIcons";
 
 function Write() {
     return (
@@ -20,20 +16,7 @@ function Write() {
             <div className="write_item threading">
                 <div className="textarea_wrapper">
                     <Counter/>
-                    <textarea id="write_textarea" className="write_textarea" placeholder="1/n" maxLength="280"
-                        onChange = {(event) => {
-                            utility.character_counter(event);
-                        }}
-                        onClick={(event) => {
-                             events.add_border_on_click(event);
-                             events.disable_delete();
-                        }}
-                        onPaste={(event) => {
-                            setTimeout(function() {
-                               window.current_formula = document.getElementById(event.target.id).value;
-                            }, 100)
-                        }}
-                    ></textarea>
+                    <Textarea/>
                     <UploadImageWriting/>
                     <Poll/>
                     <MathJax/>

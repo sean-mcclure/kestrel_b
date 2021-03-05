@@ -18,8 +18,12 @@
     font-family: Oswald;
 }
 
+.messages_item:nth-child(3) {
+    text-align: center;
+}
+
 .message_image {
     width: 350px;
     height: 195px;
-    border-radius: 4px;
+    border-radius: 6px;
 }

@@ -16,11 +16,12 @@ function MessageFooter() {
 
             }}/></div>
             <div><FaRetweet className="message_footer_icons" color="#3D3D3D" size="1.7em" onClick = {(event) => {
-            
+                events.open_div("repost");
+                events.repost();
             }}/></div>
-            <div><FaThumbsUp className="message_footer_icons" color="#3D3D3D" size="1.4em" onClick={(event) =>
-                events.like(event)
-            }/><span className="like_count">0</span></div>
+            <div><FaThumbsUp className="message_footer_icons" color="#3D3D3D" size="1.4em" onClick={(event) => {
+                events.like(event);
+            }}/><span className="like_count">0</span></div>
             <div><FaInfinity className="message_footer_icons" color="#3D3D3D" size="1.5em"/></div>
         </div>
     )
