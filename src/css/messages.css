@@ -17,3 +17,7 @@
     color: whitesmoke;
     font-family: Oswald;
 }
+
+.messages_item:nth-child(4) {
+    height: auto !important;
+}

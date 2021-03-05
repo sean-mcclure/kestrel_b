@@ -5,6 +5,8 @@ import "../css/messages.css";
 import {data} from "../data/data.js";
 import MessageAvatar from "./MessageAvatar";
 
+import MessageFooter from "./MessageFooter";
+
 function Messages() {
 
    function UpdateComponent() {
@@ -27,7 +29,7 @@ function Messages() {
                 <div className="messages_item"><MessageAvatar user={obj.user}/></div>
                 <div className="messages_item">{obj.message}</div>
                 <div className="messages_item">Img or Video</div>
-                <div className="messages_item">Comment Retweet ....</div>
+                <div className="messages_item"><MessageFooter/></div>
             </div>
         )})
     )

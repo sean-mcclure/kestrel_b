@@ -1,7 +1,5 @@
 import "../css/poll.css";
 
-import {post} from "./Post";
-
 import {utility} from "../scripts/utility.js";
 import {events} from "../scripts/events.js";
 
