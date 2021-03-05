@@ -1,0 +1,8 @@
+.comment_wrapper {
+    height: 100vh;
+    overflow-y: scroll !important;
+}
+
+.comment_clone > .messages_item {
+    width: 92% !important;
+}

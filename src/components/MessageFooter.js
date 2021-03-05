@@ -13,7 +13,8 @@ function MessageFooter() {
     return(
         <div className="icon_wrapper_post">
             <div><FaComment className="message_footer_icons" color="#3D3D3D" size="1.5em" onClick={(event) => {
-
+                events.open_div("comment");
+                events.comment();
             }}/></div>
             <div><FaRetweet className="message_footer_icons" color="#3D3D3D" size="1.7em" onClick = {(event) => {
                 events.open_div("repost");

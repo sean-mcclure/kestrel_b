@@ -264,10 +264,16 @@ export var events = {
         }
     },
     repost : function() {
-        var elem = document.getElementsByClassName("messages_wrapper")[0];
-        var clone = elem.cloneNode(true);
+        const elem = document.getElementsByClassName("messages_wrapper")[0];
+        const clone = elem.cloneNode(true);
         clone.classList.add("repost_clone");
         document.getElementsByClassName("hold_repost")[0].append(clone);
+    },
+    comment : function() {
+        const elem = document.getElementsByClassName("messages_wrapper")[0];
+        const clone = elem.cloneNode(true);
+        clone.classList.add("comment_clone");
+        document.getElementsByClassName("hold_comment")[0].append(clone);
     },
     like: function(event) {
         const id = event.currentTarget.id

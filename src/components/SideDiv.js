@@ -8,6 +8,7 @@ import SignIn from "./SignIn";
 import Poll from "./Poll";
 import Close from "./Close";
 import Repost from "./Repost";
+import Comment from "./Comment";
 
 function SideDiv() {
     return(
@@ -32,7 +33,7 @@ function SideDiv() {
                 <Repost/>
             </div>
             <div id="comment">
-                 {/*<Write/>*/}
+                 <Comment/>
             </div>
             <div id="poll_show">
                 <Poll/>
