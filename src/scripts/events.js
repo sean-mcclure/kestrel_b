@@ -273,7 +273,9 @@ export var events = {
         const elem = document.getElementsByClassName("messages_wrapper")[0];
         const clone = elem.cloneNode(true);
         clone.classList.add("comment_clone");
+        clone.children[3].remove();
         document.getElementsByClassName("hold_comment")[0].append(clone);
+        document.getElementById("write_textarea").style.marginBottom = "200px";
     },
     like: function(event) {
         const id = event.currentTarget.id
