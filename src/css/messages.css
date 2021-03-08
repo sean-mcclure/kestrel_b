@@ -8,6 +8,10 @@
     padding: 10px;
 }
 
+.messages_wrapper:last-child {
+    padding-bottom: 100px;
+}
+
 .messages_item {
     background: #227093;
     width: 95%;
