@@ -52,6 +52,7 @@ export var utility = {
     character_counter: function(event) {
         const elem = document.getElementById(event.target.id);
         var cnt = 280 - elem.value.length;
+        console.log(elem.value)
         elem.previousElementSibling.innerText = cnt;
         const div_holding_number = elem.previousElementSibling.parentElement.children[0];
         div_holding_number.style.width = (345 - elem.value.length).toString() + "px";
