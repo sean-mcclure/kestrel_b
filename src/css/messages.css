@@ -1,10 +1,10 @@
 .messages_wrapper {
     display: grid;
-    grid-template-rows: 60px auto auto auto;
+    grid-template-rows: 60px auto auto 60px;
     grid-template-columns: auto;
     grid-gap: 4px;
     width: 95%;
-    height: auto;
+    height: 100vh;
     padding: 10px;
 }
 
