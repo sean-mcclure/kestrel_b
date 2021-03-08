@@ -267,6 +267,8 @@ export var events = {
         const elem = document.getElementsByClassName("messages_wrapper")[0];
         const clone = elem.cloneNode(true);
         clone.classList.add("repost_clone");
+        clone.children[3].remove();
+        clone.children[2].children[0].style.width = "100%";
         document.getElementsByClassName("hold_repost")[0].append(clone);
     },
     comment : function() {
@@ -274,8 +276,8 @@ export var events = {
         const clone = elem.cloneNode(true);
         clone.classList.add("comment_clone");
         clone.children[3].remove();
+        clone.children[2].children[0].style.width = "100%";
         document.getElementsByClassName("hold_comment")[0].append(clone);
-        document.getElementById("write_textarea").style.marginBottom = "200px";
     },
     like: function(event) {
         const id = event.currentTarget.id

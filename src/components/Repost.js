@@ -7,8 +7,10 @@ import  WriteIcons from "../components/WriteIcons";
 function Repost() {
     return(
         <div className="repost_wrapper">
-            <Counter/>
-            <Textarea/>
+            <div className="hold_textarea_repost">
+                <Counter/>
+                <Textarea/>
+            </div>  
             <div className="hold_repost"></div>
              <WriteIcons/>
         </div>

@@ -1,8 +1,14 @@
 .repost_wrapper {
-    height: 100vh;
+    height: 80vh;
     overflow-y: scroll !important;
 }
 
 .repost_clone > .messages_item {
     width: 92% !important;
+}
+
+.hold_textarea_repost {
+    margin: 0 auto;
+    width: 96.5%;
+    margin-left: 4px;
 }

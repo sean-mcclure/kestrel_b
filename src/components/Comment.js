@@ -8,8 +8,10 @@ function Comment() {
     return(
         <div className="comment_wrapper">
             <div className="hold_comment"></div>
-            <Counter/>
-            <Textarea/>
+            <div className="hold_textarea_comment">
+                <Counter/>
+                <Textarea/>  
+            </div>
             <WriteIcons/>
         </div>
     )

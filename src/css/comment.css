@@ -1,8 +1,20 @@
 .comment_wrapper {
-    height: 100vh;
+    height: 80vh;
     overflow-y: scroll !important;
 }
 
 .comment_clone > .messages_item {
     width: 92% !important;
+}
+
+.message_header_item {
+    text-align: left;
+}
+.message_header_item:nth-child(2) {
+    margin-left: 10px;
+}
+
+.hold_textarea_comment {
+    margin: 0 auto;
+    width: 95.5%;
 }
