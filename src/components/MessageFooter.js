@@ -9,7 +9,7 @@ import {
   FaInfinity
 } from "react-icons/fa";
 
-function MessageFooter() {
+function MessageFooter(props) {
     return(
         <div className="icon_wrapper_post">
             <div><FaComment className="message_footer_icons" color="#3D3D3D" size="1.5em" onClick={(event) => {
@@ -20,7 +20,7 @@ function MessageFooter() {
                 events.open_div("repost");
                 events.repost();
             }}/></div>
-            <div><FaThumbsUp className="message_footer_icons" color="#3D3D3D" size="1.4em" onClick={(event) => {
+            <div><FaThumbsUp id={"like_" + props.like_id} className="message_footer_icons like_icon" color="#3D3D3D" size="1.4em" onClick={(event) => {
                 events.like(event);
             }}/><span className="like_count">0</span></div>
             <div><FaInfinity className="message_footer_icons" color="#3D3D3D" size="1.5em"/></div>

@@ -29,7 +29,7 @@ function Messages() {
                 <div className="messages_item"><MessageAvatar user={obj.user}/></div>
                 <div className="messages_item">{obj.message}</div>
                 <div className="messages_item"><img className="message_image" src={obj.img} alt="msg_image"></img></div>
-                <div className="messages_item"><MessageFooter/></div>
+                <div className="messages_item"><MessageFooter like_id={i}/></div>
             </div>
         )})
     )

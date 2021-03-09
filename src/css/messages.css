@@ -1,10 +1,9 @@
 .messages_wrapper {
     display: grid;
-    grid-template-rows: 60px auto auto 60px;
+    grid-template-rows: 60px auto auto 50px;
     grid-template-columns: auto;
     grid-gap: 4px;
     width: 95%;
-    height: 100vh;
     padding: 10px;
 }
 
@@ -24,10 +23,19 @@
 
 .messages_item:nth-child(3) {
     text-align: center;
+    height: 200px !important;
 }
 
 .message_image {
     width: 350px;
     height: 195px;
     border-radius: 6px;
+}
+
+.message_header_item > img {
+    -webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
 }

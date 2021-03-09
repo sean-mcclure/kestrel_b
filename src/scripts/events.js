@@ -267,21 +267,50 @@ export var events = {
         const elem = document.getElementsByClassName("messages_wrapper")[0];
         const clone = elem.cloneNode(true);
         clone.classList.add("repost_clone");
-        clone.children[3].remove();
+        events.clear_reposts()
+        events.clear_comments()
+        if(typeof(clone.children[3]) !== "undefined") {
+            clone.children[3].remove();
+        }
         clone.children[2].children[0].style.width = "100%";
         document.getElementsByClassName("hold_repost")[0].append(clone);
+        const all_cnts = document.getElementsByClassName("show_count");
+        for(var i=0;i<all_cnts.length;i++) {
+            all_cnts[i].style.marginTop = "0px"
+        }
     },
     comment : function() {
         const elem = document.getElementsByClassName("messages_wrapper")[0];
         const clone = elem.cloneNode(true);
         clone.classList.add("comment_clone");
-        clone.children[3].remove();
+        events.clear_comments()
+        events.clear_reposts()
+        if(typeof(clone.children[3]) !== "undefined") {
+            clone.children[3].remove();
+        }
         clone.children[2].children[0].style.width = "100%";
         document.getElementsByClassName("hold_comment")[0].append(clone);
+        const all_cnts = document.getElementsByClassName("show_count");
+        for(var i=0;i<all_cnts.length;i++) {
+            all_cnts[i].style.marginTop = "-140px"
+        }
+        
+    },
+    clear_reposts : function() {
+        const elems = document.getElementsByClassName("repost_clone");
+        for(var i=0; i<elems.length;i++) {
+            elems[i].remove()
+        }
+    },
+    clear_comments : function() {
+        const elems = document.getElementsByClassName("comment_clone");
+        for(var i=0; i<elems.length;i++) {
+            elems[i].remove()
+        }
     },
     like: function(event) {
         const id = event.currentTarget.id
-        const class_instance = utility.get_class_instance("like_icons", id)
+        const class_instance = utility.get_class_instance("like_icon", id)
         var current_value = Number(document.getElementsByClassName("like_count")[class_instance].innerText)
         likes[id] = current_value
         if ((current_value % 2) === 0 || typeof(current_value % 2) === 'undefined') {

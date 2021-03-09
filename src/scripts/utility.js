@@ -1,5 +1,6 @@
 import smoothscroll from 'smoothscroll-polyfill';
 import "../css/loader.css";
+import { events } from './events';
 smoothscroll.polyfill();
 export var utility = {
     call_once_satisfied: function(props) {
@@ -50,6 +51,7 @@ export var utility = {
         }
     },
     character_counter: function(event) {
+        console.log(event.target.id)
         const elem = document.getElementById(event.target.id);
         var cnt = 280 - elem.value.length;
         console.log(elem.value)

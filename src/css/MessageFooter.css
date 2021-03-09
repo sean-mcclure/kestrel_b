@@ -10,3 +10,11 @@
     cursor: pointer;
     margin-right: 10px;
 }
+
+.like_count {
+    -webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
