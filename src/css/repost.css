@@ -5,6 +5,7 @@
 
 .repost_clone > .messages_item {
     width: 92% !important;
+    text-align: left;
 }
 
 .hold_textarea_repost {
