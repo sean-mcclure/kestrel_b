@@ -16,7 +16,7 @@ const upload_image = function(event) {
 }
 
 const img_styles = {
-    "border-radius" : "20px"
+    "border-radius" : "6px"
 }
 
 function UploadImageWriting() {

@@ -102,7 +102,9 @@ export var events = {
             user: events.get_current_user(),
             message: document.getElementById("write_textarea").value,
             likes: 0,
-            reposts: 0
+            reposts: 0,
+            img : document.getElementsByClassName("uploaded_img_writing")[0].src,
+            poll : null
         }
         return (new_post)
     },

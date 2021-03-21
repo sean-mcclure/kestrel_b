@@ -26,10 +26,19 @@
     height: 200px !important;
 }
 
-.message_image {
-    width: 350px;
+.crop {
+    width: auto;
     height: 195px;
-    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0px solid black;
+    border-radius: 6px;;
+}
+
+.message_image {
+    width: 100%;
 }
 
 .message_header_item > img {
