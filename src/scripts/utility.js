@@ -1,7 +1,9 @@
 import smoothscroll from 'smoothscroll-polyfill';
 import "../css/loader.css";
 import { events } from './events';
+
 smoothscroll.polyfill();
+
 export var utility = {
     call_once_satisfied: function(props) {
         if (props['condition'] === true) {
@@ -81,5 +83,11 @@ export var utility = {
         var reader = new FileReader();
         reader.readAsDataURL(file_obj);
         return (reader.result)
+    },
+    pop_image : function(event) {       
+        const id = event.target.id;
+        window.popped_img = document.getElementById(id).src;
+        events.open_div("img_and_video")
+    
     }
 }

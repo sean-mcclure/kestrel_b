@@ -9,6 +9,7 @@ import Poll from "./Poll";
 import Close from "./Close";
 import Repost from "./Repost";
 import Comment from "./Comment";
+import ShowImgVideo from "./ShowImgVideo";
 
 function SideDiv() {
     return(
@@ -39,9 +40,7 @@ function SideDiv() {
                 <Poll/>
             </div>
             <div id="img_and_video">
-                <div className="close_clicked_img"><Close/></div>
-                <img id="clicked_img" alt="clicked"></img>
-                <video height="200px" controls id="hold_uploaded_video"><source id="clicked_video" type="video/mp4"></source></video>
+                <ShowImgVideo/>
             </div>
         </div>
     )

@@ -7,6 +7,8 @@ import MessageAvatar from "./MessageAvatar";
 
 import MessageFooter from "./MessageFooter";
 
+import {utility} from "../scripts/utility.js";
+
 function Messages() {
 
    function UpdateComponent() {
@@ -28,7 +30,9 @@ function Messages() {
             <div className="messages_wrapper" key={i}>
                 <div className="messages_item"><MessageAvatar user={obj.user}/></div>
                 <div className="messages_item">{obj.message}</div>
-                <div className="messages_item"><div className="crop"><img className="message_image" src={obj.img} alt="msg_image"></img></div></div>
+                <div className="messages_item"><div className="crop"><img id={"img_" + i} className="message_image" src={obj.img} alt="msg_image" onClick={(event) => {
+                    utility.pop_image(event)
+                }}></img></div></div>
                 <div className="messages_item"><MessageFooter like_id={i}/></div>
             </div>
         )})
