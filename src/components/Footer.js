@@ -1,6 +1,7 @@
 import "../css/Footer.css";
 import "../css/tooltip.css";
 
+import {utility} from "../scripts/utility.js";
 import {events} from "../scripts/events.js";
 
 import {log_user_out} from "../scripts/parse.js";
@@ -24,7 +25,9 @@ function Footer() {
                 }
              }}>SIGN IN/UP</p></div>
             <div class="tooltip top" data-tooltip_text="FETCH LATEST">
-                <FaRedo id="refresh_icon" color="white" size="1.8em" className="options_icons"></FaRedo></div>
+                <FaRedo id="refresh_icon" color="white" size="1.8em" className="options_icons" onClick={(event) => {
+                utility.spin_element("refresh_icon");
+            }}></FaRedo></div>
             <div class="tooltip top" data-tooltip_text="SEARCH">
                 <FaSearch id="search_icon" color="white" size="2em" className="options_icons" onClick={(event) => {
                 events.open_div("search");

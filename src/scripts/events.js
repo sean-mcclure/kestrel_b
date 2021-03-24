@@ -135,6 +135,7 @@ export var events = {
         clone.children[1].addEventListener("click", (event) => {
             events.add_border_on_click(event);
             events.enable_delete();
+            events.enable_camera();
         });
         clone.children[1].addEventListener("input", (event) => {
             utility.character_counter(event)
@@ -210,6 +211,10 @@ export var events = {
     },
     clear_threads: function() {
         var elems = document.getElementsByClassName("clone");
+        while (elems.length > 0) {
+            elems[0].remove();
+        }
+        var elems = document.getElementsByClassName("uploaded_img_wrapper");
         while (elems.length > 0) {
             elems[0].remove();
         }
@@ -395,5 +400,10 @@ export var events = {
     add_poll : function() {
         const inst = events.get_clicked_textarea_instance();
         document.getElementsByClassName("poll_wrapper")[inst].style.display = "block";
+    },
+    enable_camera : function() {
+        const elem = document.getElementById("camera_icon");
+        elem.style.pointerEvents = "auto";
+        elem.style.opacity = "1";
     }
 }

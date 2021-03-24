@@ -89,5 +89,11 @@ export var utility = {
         window.popped_img = document.getElementById(id).src;
         events.open_div("img_and_video")
     
+    },
+    spin_element : function(id) {
+        document.getElementById(id).classList.remove("spin");
+        setTimeout(function() {
+            document.getElementById(id).classList.add("spin");
+        }, 100)
     }
 }

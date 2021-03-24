@@ -12,6 +12,7 @@ function Textarea() {
             onClick={(event) => {
                     events.add_border_on_click(event);
                     events.disable_delete();
+                    events.enable_camera();
             }}
             onPaste={(event) => {
                 setTimeout(function() {

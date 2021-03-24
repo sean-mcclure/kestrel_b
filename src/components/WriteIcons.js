@@ -19,7 +19,7 @@ function WriteIcons() {
                 }}/>
             </div>
             <div className="write_icons_item">
-                 <FaCameraRetro className="write_icons" size="1.7em" onClick={(event) => {
+                 <FaCameraRetro id="camera_icon" className="write_icons" size="1.7em" onClick={(event) => {
                         document.getElementsByClassName("input_hide_writing")[events.get_clicked_textarea_instance()].click();
                      }}/>
             </div>
