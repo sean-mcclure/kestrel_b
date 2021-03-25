@@ -210,22 +210,9 @@ export var events = {
         }
     },
     clear_threads: function() {
-        var elems = document.getElementsByClassName("clone");
-        while (elems.length > 0) {
-            elems[0].remove();
-        }
-        var elems = document.getElementsByClassName("upload_img_wrapper");
-        while (elems.length > 0) {
-            elems[0].remove();
-        }
-        var elems = document.getElementsByClassName("textarea_wrapper");
-        for(var i=0; i<elems.length; i++) {
-            elems[i].style.marginTop = "25px";
-            elems[i].style.marginBottom = "25px";
-        }
-        document.getElementById("write_textarea").placeholder = "1/n";
-        document.getElementsByClassName("show_count")[0].innerText = "280";
-        document.getElementsByClassName("show_count")[0].style.width = "100%";
+        setTimeout(function() {
+            window.location.reload();
+        }, 1000)
     },
     sign_in_toggle: function(event) {
         const id = event.target.id;
@@ -397,6 +384,8 @@ export var events = {
             elem.classList.remove("slide_right");
             events.renumber_placeholders();
             events.disable_delete();
+            document.getElementById("write_textarea").click();
+            utility.scroll_to_top("write_wrapper");
         }, 200)
     },
     click_back_poll: function(e) {
