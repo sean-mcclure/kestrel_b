@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import "../css/messages.css";
 
@@ -32,6 +32,7 @@ function Messages() {
                 <div className="messages_item">{obj.message}</div>
                 <div className="messages_item"><div className="crop"><img id={"img_" + i} className="message_image" src={obj.img} alt="msg_image" onClick={(event) => {
                     utility.pop_image(event)
+                    console.log(event.target.id)
                 }}></img></div></div>
                 <div className="messages_item"><MessageFooter like_id={i}/></div>
             </div>

@@ -88,7 +88,6 @@ export var utility = {
         const id = event.target.id;
         window.popped_img = document.getElementById(id).src;
         events.open_div("img_and_video")
-    
     },
     spin_element : function(id) {
         document.getElementById(id).classList.remove("spin");

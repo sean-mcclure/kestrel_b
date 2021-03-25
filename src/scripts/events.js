@@ -214,9 +214,14 @@ export var events = {
         while (elems.length > 0) {
             elems[0].remove();
         }
-        var elems = document.getElementsByClassName("uploaded_img_wrapper");
+        var elems = document.getElementsByClassName("upload_img_wrapper");
         while (elems.length > 0) {
             elems[0].remove();
+        }
+        var elems = document.getElementsByClassName("textarea_wrapper");
+        for(var i=0; i<elems.length; i++) {
+            elems[i].style.marginTop = "25px";
+            elems[i].style.marginBottom = "25px";
         }
         document.getElementById("write_textarea").placeholder = "1/n";
         document.getElementsByClassName("show_count")[0].innerText = "280";
