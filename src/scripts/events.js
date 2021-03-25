@@ -212,7 +212,7 @@ export var events = {
     clear_threads: function() {
         setTimeout(function() {
             window.location.reload();
-        }, 1000)
+        }, 10000) // throttle this to 1 or 2 seconds
     },
     sign_in_toggle: function(event) {
         const id = event.target.id;
