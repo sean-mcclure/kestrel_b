@@ -97,10 +97,21 @@ export var events = {
             }
         }
     },
+    prepare_thread_for_post : function() {
+        var res = [];
+        var elems = document.getElementsByClassName("write_textarea");
+        for(var i=0;i<elems.length;i++) {
+            if(elems[i].value !== "") {
+                res.push(elems[i].value)
+            }
+        }
+        var fin = res.join(", \n")
+        return(fin)
+    },
     prepare_new_post: function() {
         var new_post = {
             user: events.get_current_user(),
-            message: document.getElementById("write_textarea").value,
+            message: events.prepare_thread_for_post(),
             likes: 0,
             reposts: 0,
             img : document.getElementsByClassName("uploaded_img_writing")[0].src,
