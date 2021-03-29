@@ -8,6 +8,7 @@ import Parse from "parse";
 
 import Messages, {setMessages} from "../components/Messages";
 
+
 var eye_cnt = 0;
 var likes = {}
 var clone_cnt = 0;
@@ -105,7 +106,23 @@ export var events = {
                 res.push(elems[i].value)
             }
         }
-        var fin = res.join(", \n")
+       // var fin = res.join(", \n")
+
+       // change this to only add THREAD span when there is more than one tweet (an actual thread)
+       // then, find a way to add the event listener to only the last one added
+       // then, on click on the word THREAD open_div that shows the thread (so create a new side_div)
+
+        var fin = res[0] + "<span class='thread_click' style='color:gold'><br>THREAD</span>" // currently only taking the first message of a thread
+
+        setTimeout(function() {
+            document.getElementsByClassName("thread_click")[0].addEventListener("click", function() {
+                alert('hello')
+            })
+        }, 2000)
+
+        // store all messages on the THREAD span
+
+
         return(fin)
     },
     prepare_new_post: function() {
@@ -223,7 +240,7 @@ export var events = {
     clear_threads: function() {
         setTimeout(function() {
             window.location.reload();
-        }, 10000) // throttle this to 1 or 2 seconds
+        }, 1000000000) // throttle this to 1 or 2 seconds
     },
     sign_in_toggle: function(event) {
         const id = event.target.id;
