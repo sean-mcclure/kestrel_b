@@ -10,6 +10,7 @@ import Close from "./Close";
 import Repost from "./Repost";
 import Comment from "./Comment";
 import ShowImgVideo from "./ShowImgVideo";
+import Thread from "./Thread";
 
 function SideDiv() {
     return(
@@ -41,6 +42,9 @@ function SideDiv() {
             </div>
             <div id="img_and_video">
                 <ShowImgVideo/>
+            </div>
+            <div id="thread">
+                <Thread/>
             </div>
         </div>
     )

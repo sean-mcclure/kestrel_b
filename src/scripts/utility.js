@@ -94,5 +94,8 @@ export var utility = {
         setTimeout(function() {
             document.getElementById(id).classList.add("spin");
         }, 100)
+    },
+    get_last_instance : function(classname) {
+        return(document.getElementsByClassName(classname).length);
     }
 }

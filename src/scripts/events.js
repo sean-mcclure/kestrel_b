@@ -112,17 +112,24 @@ export var events = {
        // then, find a way to add the event listener to only the last one added
        // then, on click on the word THREAD open_div that shows the thread (so create a new side_div)
 
-        var fin = res[0] + "<span class='thread_click' style='color:gold'><br>THREAD</span>" // currently only taking the first message of a thread
+       if(res.length > 1) {
+           // thread
+           var fin = res[0] + "<span class='thread_click' style='color:gold'><br>THREAD</span>"
+           setTimeout(function() {
+               const elem = document.getElementsByClassName("thread_click")[utility.get_last_instance("thread_click") - 1];
+               elem.addEventListener("click", function(event) {
+                   events.open_div("thread");
+                   window.current_thread = event.target.getAttribute("data-store_thread_data")
+               })
+               elem.setAttribute("data-store_thread_data", JSON.stringify(res))
+            }, 1000)
+       } else {
+          // single post
+          var fin = res
+       }
 
-        setTimeout(function() {
-            document.getElementsByClassName("thread_click")[0].addEventListener("click", function() {
-                alert('hello')
-            })
-        }, 2000)
-
+        
         // store all messages on the THREAD span
-
-
         return(fin)
     },
     prepare_new_post: function() {
