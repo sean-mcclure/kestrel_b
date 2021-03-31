@@ -1,6 +1,9 @@
+import React, { useState, useEffect } from 'react';
+
+
 import "../css/Thread.css";
 
-import {data} from "../data/data.js";
+import {thread} from "../data/data.js";
 import MessageAvatar from "./MessageAvatar";
 
 import MessageFooter from "./MessageFooter";
@@ -12,8 +15,21 @@ import ReactHtml from 'raw-html-react';
 window.current_thread = ""
 
 function Thread() {
+    function UpdateComponent() {
+        const [value, setValue] = useState(0);
+        return () => setValue(value => value + 1);
+    }
+
+    const update = UpdateComponent();
+    
+    useEffect(() => {
+        const interval = setInterval(() => {
+            update();
+        }, 1000);
+        return () => clearInterval(interval);
+    }, []);
     return(
-        data.messages.map(function(obj, i){return(
+        thread.messages.map(function(obj, i){return(
             <div className="messages_wrapper" key={i}>
                 <div className="messages_item"><MessageAvatar user={obj.user}/></div>
                 <div className="messages_item"><ReactHtml html={obj.message}/></div>

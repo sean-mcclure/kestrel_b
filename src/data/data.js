@@ -25,3 +25,7 @@ export const data = {
         ]
 }
 
+export const thread = {
+    messages : []
+}
+

@@ -1,19 +1,22 @@
-import {utility} from "./utility.js";
-import {data} from "../data/data.js";
-
+import {
+    utility
+} from "./utility.js";
+import {
+    data
+} from "../data/data.js";
+import {
+    thread
+} from "../data/data.js";
 import "../css/animations.css"
 import "../css/write.css";
-
 import Parse from "parse";
-
-import Messages, {setMessages} from "../components/Messages";
-
-
+import Messages, {
+    setMessages
+} from "../components/Messages";
 var eye_cnt = 0;
 var likes = {}
 var clone_cnt = 0;
 var follow_block_cnt = 0;
-
 export var events = {
     get_current_user: function() {
         return (Parse.User.current())
@@ -98,39 +101,29 @@ export var events = {
             }
         }
     },
-    prepare_thread_for_post : function() {
+    prepare_thread_for_post: function() {
         var res = [];
         var elems = document.getElementsByClassName("write_textarea");
-        for(var i=0;i<elems.length;i++) {
-            if(elems[i].value !== "") {
+        for (var i = 0; i < elems.length; i++) {
+            if (elems[i].value !== "") {
                 res.push(elems[i].value)
             }
         }
-       // var fin = res.join(", \n")
-
-       // change this to only add THREAD span when there is more than one tweet (an actual thread)
-       // then, find a way to add the event listener to only the last one added
-       // then, on click on the word THREAD open_div that shows the thread (so create a new side_div)
-
-       if(res.length > 1) {
-           // thread
-           var fin = res[0] + "<span class='thread_click' style='color:gold'><br>THREAD</span>"
-           setTimeout(function() {
-               const elem = document.getElementsByClassName("thread_click")[utility.get_last_instance("thread_click") - 1];
-               elem.addEventListener("click", function(event) {
-                   events.open_div("thread");
-                   window.current_thread = event.target.getAttribute("data-store_thread_data")
-               })
-               elem.setAttribute("data-store_thread_data", JSON.stringify(res))
+        if (res.length > 1) {
+            // thread
+            var fin = res[0] + "<span class='thread_click' style='color:gold'><br>THREAD</span>";
+            thread.messages = events.prepare_new_thread(res);
+            setTimeout(function() {
+                const elem = document.getElementsByClassName("thread_click")[utility.get_last_instance("thread_click") - 1];
+                elem.addEventListener("click", function(event) {
+                    events.open_div("thread");
+                })
             }, 1000)
-       } else {
-          // single post
-          var fin = res
-       }
-
-        
-        // store all messages on the THREAD span
-        return(fin)
+        } else {
+            // single post
+            var fin = res
+        }
+        return (fin)
     },
     prepare_new_post: function() {
         var new_post = {
@@ -138,8 +131,8 @@ export var events = {
             message: events.prepare_thread_for_post(),
             likes: 0,
             reposts: 0,
-            img : document.getElementsByClassName("uploaded_img_writing")[0].src,
-            poll : null
+            img: document.getElementsByClassName("uploaded_img_writing")[0].src,
+            poll: null
         }
         return (new_post)
     },
@@ -147,6 +140,21 @@ export var events = {
         var new_post = events.prepare_new_post();
         data.messages.unshift(new_post);
         events.clear_threads()
+    },
+    prepare_new_thread: function(all_posts) {
+        var res = [];
+        all_posts.forEach(function(msg) {
+            var msg = {
+                user: events.get_current_user(),
+                message: msg,
+                likes: 0,
+                reposts: 0,
+                img: "", // get images from thread posts here
+                poll: null
+            }
+            res.push(msg)
+        })
+        return (res)
     },
     save_to_parse: function() {
         //JSON.stringify(data)
@@ -192,7 +200,7 @@ export var events = {
         var total_height = document.getElementsByClassName("write_textarea").length * 200;
         utility.scroll_to_bottom("write_wrapper", total_height);
     },
-    renumber_placeholders : function() {
+    renumber_placeholders: function() {
         var elems = document.getElementsByClassName("clone");
         for (var i = 0; i < elems.length; i++) {
             elems[i].children[1].placeholder = (i + 2).toString() + "/" + (elems.length + 1).toString();
@@ -204,12 +212,12 @@ export var events = {
             }
         }
     },
-    enable_delete : function() {
+    enable_delete: function() {
         const remove = document.getElementsByClassName("remove_clone")[0];
         remove.style.pointerEvents = "auto";
         remove.style.opacity = "1";
     },
-    disable_delete : function() {
+    disable_delete: function() {
         const remove = document.getElementsByClassName("remove_clone")[0];
         remove.style.pointerEvents = "none";
         remove.style.opacity = "0.5";
@@ -297,48 +305,47 @@ export var events = {
             butt.style.color = "#141414";
         }
     },
-    repost : function() {
+    repost: function() {
         const elem = document.getElementsByClassName("messages_wrapper")[0];
         const clone = elem.cloneNode(true);
         clone.classList.add("repost_clone");
         events.clear_reposts()
         events.clear_comments()
-        if(typeof(clone.children[3]) !== "undefined") {
+        if (typeof(clone.children[3]) !== "undefined") {
             clone.children[3].remove();
         }
         clone.children[2].children[0].style.width = "100%";
         document.getElementsByClassName("hold_repost")[0].append(clone);
         const all_cnts = document.getElementsByClassName("show_count");
-        for(var i=0;i<all_cnts.length;i++) {
+        for (var i = 0; i < all_cnts.length; i++) {
             all_cnts[i].style.marginTop = "0px"
         }
     },
-    comment : function() {
+    comment: function() {
         const elem = document.getElementsByClassName("messages_wrapper")[0];
         const clone = elem.cloneNode(true);
         clone.classList.add("comment_clone");
         events.clear_comments()
         events.clear_reposts()
-        if(typeof(clone.children[3]) !== "undefined") {
+        if (typeof(clone.children[3]) !== "undefined") {
             clone.children[3].remove();
         }
         clone.children[2].children[0].style.width = "100%";
         document.getElementsByClassName("hold_comment")[0].append(clone);
         const all_cnts = document.getElementsByClassName("show_count");
-        for(var i=0;i<all_cnts.length;i++) {
+        for (var i = 0; i < all_cnts.length; i++) {
             all_cnts[i].style.marginTop = "-140px"
         }
-        
     },
-    clear_reposts : function() {
+    clear_reposts: function() {
         const elems = document.getElementsByClassName("repost_clone");
-        for(var i=0; i<elems.length;i++) {
+        for (var i = 0; i < elems.length; i++) {
             elems[i].remove()
         }
     },
-    clear_comments : function() {
+    clear_comments: function() {
         const elems = document.getElementsByClassName("comment_clone");
-        for(var i=0; i<elems.length;i++) {
+        for (var i = 0; i < elems.length; i++) {
             elems[i].remove()
         }
     },
@@ -410,11 +417,11 @@ export var events = {
             document.getElementsByClassName("sign_in_pass")[0].type = "text";
         }
     },
-    delete_thread : function() {
+    delete_thread: function() {
         const instance = events.get_clicked_textarea_instance();
         const elem = document.getElementsByClassName("clone")[instance - 1];
         elem.classList.add("slide_right");
-        setTimeout(function() {  
+        setTimeout(function() {
             elem.remove();
             elem.classList.remove("slide_right");
             events.renumber_placeholders();
@@ -426,11 +433,11 @@ export var events = {
     click_back_poll: function(e) {
         events.open_div("write");
     },
-    add_poll : function() {
+    add_poll: function() {
         const inst = events.get_clicked_textarea_instance();
         document.getElementsByClassName("poll_wrapper")[inst].style.display = "block";
     },
-    enable_camera : function() {
+    enable_camera: function() {
         const elem = document.getElementById("camera_icon");
         elem.style.pointerEvents = "auto";
         elem.style.opacity = "1";
