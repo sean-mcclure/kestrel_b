@@ -65,7 +65,8 @@ export var events = {
             repost: "REPOST",
             comment: "COMMENT",
             poll_show: "POLL",
-            img_and_video: "IMAGES/VIDEOS"
+            img_and_video: "IMAGES/VIDEOS",
+            thread: "THREAD"
         }
         document.getElementsByClassName("write_title")[0].innerHTML = titles[id];
     },
@@ -79,7 +80,8 @@ export var events = {
             repost: "#d1ccc0",
             comment: "#d1ccc0",
             poll_show: "#d1ccc0",
-            img_and_video: "#d1ccc0"
+            img_and_video: "#d1ccc0",
+            thread: "#d1ccc0"
         }
         document.getElementById("sidediv").style.background = colors[id];;
     },
@@ -103,20 +105,30 @@ export var events = {
     },
     prepare_thread_for_post: function() {
         var res = [];
-        var elems = document.getElementsByClassName("write_textarea");
-        for (var i = 0; i < elems.length; i++) {
-            if (elems[i].value !== "") {
-                res.push(elems[i].value)
+        var hold_imgs = []
+        var texts = document.getElementsByClassName("write_textarea");
+        for (var i = 0; i < texts.length; i++) {
+            if (texts[i].value !== "") {
+                res.push(texts[i].value)
+            }
+        }
+        var imgs = document.getElementsByClassName("upload_img_wrapper");
+        for (var i = 0; i < imgs.length; i++) {
+            if (imgs[i].value !== "") {
+                hold_imgs.push(imgs[i].children[1].src)
             }
         }
         if (res.length > 1) {
             // thread
             var fin = res[0] + "<span class='thread_click' style='color:gold'><br>THREAD</span>";
-            thread.messages = events.prepare_new_thread(res);
+            thread.messages = events.prepare_new_thread(res, hold_imgs);
             setTimeout(function() {
                 const elem = document.getElementsByClassName("thread_click")[utility.get_last_instance("thread_click") - 1];
                 elem.addEventListener("click", function(event) {
                     events.open_div("thread");
+                    const elem = document.getElementById("thread");
+                    elem.style.overflowY = "scroll";
+                    elem.style.height = "100vh";
                 })
             }, 1000)
         } else {
@@ -141,15 +153,15 @@ export var events = {
         data.messages.unshift(new_post);
         events.clear_threads()
     },
-    prepare_new_thread: function(all_posts) {
+    prepare_new_thread: function(all_posts, all_imgs) {
         var res = [];
-        all_posts.forEach(function(msg) {
+        all_posts.forEach(function(msg, i) {
             var msg = {
                 user: events.get_current_user(),
                 message: msg,
                 likes: 0,
                 reposts: 0,
-                img: "", // get images from thread posts here
+                img: all_imgs[i], // get images from thread posts here
                 poll: null
             }
             res.push(msg)

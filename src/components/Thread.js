@@ -29,7 +29,9 @@ function Thread() {
         return () => clearInterval(interval);
     }, []);
     return(
-        thread.messages.map(function(obj, i){return(
+        thread.messages.map(function(obj, i){
+             //    console.log(obj)
+            return(
             <div className="messages_wrapper" key={i}>
                 <div className="messages_item"><MessageAvatar user={obj.user}/></div>
                 <div className="messages_item"><ReactHtml html={obj.message}/></div>
